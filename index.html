@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lantern - Intelligence that guides your purchasing</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="Logo.svg" alt="Lantern" class="lantern-icon">
+                <span class="logo-text">Lantern</span>
+            </div>
+            <a href="demo-form.html" class="header-demo-button">Book a demo</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Supercharge Your Forecasting</h1>
+            <p class="hero-description">Never Stock Out. Never Overbuy. Lantern builds custom machine learning models for you to guide what, when, and how you buy.</p>
+            <div class="cta-form">
+                <div class="email-field">
+                    <svg class="email-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 7L12 13L20 7" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="3" y="5" width="18" height="12" rx="2" stroke="#999" stroke-width="2" fill="none"/>
+                    </svg>
+                    <input type="email" placeholder="Email address" class="email-input">
+                </div>
+                <a href="demo-form.html" class="demo-button-cta">Book a demo <span>→</span></a>
+            </div>
+            
+            <!-- Partner Logos -->
+            <div class="partner-logos">
+                <div class="logos-grid">
+                    <a href="https://www.resupplyco.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="R&E.png" alt="R&E Supply" class="partner-logo">
+                    </a>
+                    <a href="https://cappusa.com/?srsltid=AfmBOoqxTakcPCN03SLr0nw9S71C4kgi6NHpBXY_eWyYyXkfsNVnY6Mw" target="_blank" rel="noopener noreferrer">
+                        <img src="CAPP.png" alt="CAPP" class="partner-logo">
+                    </a>
+                    <a href="https://www.sydist.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="SY.svg" alt="Schaedler Yesco" class="partner-logo">
+                    </a>
+                    <a href="https://www.lesman.com/?srsltid=AfmBOorcbqjBFxogx5c4fmYnWMt_Gkbe33zOIHoCQMgjVJ0RAU2y5JVj" target="_blank" rel="noopener noreferrer">
+                        <img src="2021-Lesman-Kele-Logo.png" alt="Lesman" class="partner-logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- New Section -->
+    <section id="features" class="content-section">
+        <div class="content-container">
+            <!-- Left Side - Content and Features -->
+            <div class="left-content">
+                <div class="content-header">
+                    <span class="section-label">PURCHASE SMARTER</span>
+                    <h2 class="section-title"><span class="title-accent">Lantern</span> considers every factor important to purchasing</h2>
+                </div>
+                
+                <div class="features-list">
+                    <div class="feature-item clickable active" data-feature="1" onclick="toggleFeature(1, true)">
+                        <div class="feature-number">01</div>
+                        <div class="feature-content">
+                            <h3>Demand Forecasting</h3>
+                            <div class="feature-description default-open" id="desc-1">
+                                <p>We create <span style="color: #00B0FF; font-weight: bold;">custom machine learning models</span> for your business that use billions of data signals to precisely predict your demand.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-item clickable" data-feature="2" onclick="toggleFeature(2, true)">
+                        <div class="feature-number">02</div>
+                        <div class="feature-content">
+                            <h3>Smart Lead Times</h3>
+                            <div class="feature-description" id="desc-2">
+                                <p>Our models ingest your purchase and delivery data to <span style="color: #00B0FF; font-weight: bold;">predict lead times</span> so delays never cost you a sale.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-item clickable" data-feature="3" onclick="toggleFeature(3, true)">
+                        <div class="feature-number">03</div>
+                        <div class="feature-content">
+                            <h3>Dynamic Product Classifications</h3>
+                            <div class="feature-description" id="desc-3">
+                                <p>We automatically rank your products daily on the metrics that matter to you, setting <span style="color: #00B0FF; font-weight: bold;">dynamic service levels</span> powered by real-time insights.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-item clickable" data-feature="4" onclick="toggleFeature(4, true)">
+                        <div class="feature-number">04</div>
+                        <div class="feature-content">
+                            <h3>Forward Buying</h3>
+                            <div class="feature-description" id="desc-4">
+                                <p>Stop guessing your bulk buys. We tell you the <span style="color: #00B0FF; font-weight: bold;">smartest basket based on demand</span> and whether you should actually take the deal.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-item clickable" data-feature="5" onclick="toggleFeature(5, true)">
+                        <div class="feature-number">05</div>
+                        <div class="feature-content">
+                            <h3>External Data</h3>
+                            <div class="feature-description" id="desc-5">
+                                <p>From weather to regulation, we use <span style="color: #00B0FF; font-weight: bold;">hundreds of external data sources</span> to give you demand forecasts you can bet your business on.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Product Images -->
+            <div class="right-content">
+                <div class="product-image-container">
+                    <div class="product-image active" id="image-1">
+                        <img src="demand-forecasting.png" alt="Demand Forecasting Interface" class="screenshot-image">
+                    </div>
+                    <div class="product-image" id="image-2">
+                        <img src="smart-lead-times.png" alt="Smart Lead Times Interface" class="screenshot-image">
+                    </div>
+                    <div class="product-image" id="image-3">
+                        <img src="product-classification.png" alt="Dynamic Product Classifications Interface" class="screenshot-image">
+                    </div>
+                    <div class="product-image" id="image-4">
+                        <img src="forward-buying.png" alt="Forward Buying Interface" class="screenshot-image">
+                    </div>
+                    <div class="product-image" id="image-5">
+                        <div class="product-image-placeholder">
+                            <span>External Data<br/>Product Image</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Section -->
+    <section id="testimonials" class="new-section">
+        <div class="new-section-container">
+            <!-- Left Side - Content and Features (Roles) -->
+            <div class="left-content">
+                <div class="content-header">
+                    <span class="section-label">FORECAST BETTER</span>
+                    <h2 class="section-title">Why distributors choose <span class="title-accent">Lantern</span></h2>
+                    <p class="section-description">Join industry leaders who trust Lantern to deliver results across their entire business.</p>
+                </div>
+                
+                <div class="blocks-grid-vertical">
+                    <div class="block-item clickable active" data-block="1" onclick="toggleBlock(1, true)">
+                        <div class="block-logo-container">
+                            <img src="CAPP.png" alt="CAPP" class="company-logo-icon">
+                        </div>
+                        <div class="block-content">
+                            <h3 class="block-title">Chief Executive Officer</h3>
+                            <div class="block-description default-open" id="block-desc-1">
+                                <p>Unlock millions in working capital and increase sales with <span style="color: #00B0FF; font-weight: bold;">smarter inventory allocation</span> across your network.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-item clickable" data-block="2" onclick="toggleBlock(2, true)">
+                        <div class="block-logo-container">
+                            <img src="SY.svg" alt="Schaedler Yesco" class="company-logo-icon">
+                        </div>
+                        <div class="block-content">
+                            <h3 class="block-title">Head of Purchasing</h3>
+                            <div class="block-description" id="block-desc-2">
+                                <p>React instantly to the market, <span style="color: #00B0FF; font-weight: bold;">reduce time manually guessing demand</span>, and quickly onboard new team members.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-item clickable" data-block="3" onclick="toggleBlock(3, true)">
+                        <div class="block-logo-container">
+                            <img src="2021-Lesman-Kele-Logo.png" alt="Lesman Kele" class="company-logo-icon">
+                        </div>
+                        <div class="block-content">
+                            <h3 class="block-title">Head of Finance</h3>
+                            <div class="block-description" id="block-desc-3">
+                                <p>Inventory turns, cash conversion cycles, and carrying cost matter. We help drive impact <span style="color: #00B0FF; font-weight: bold;">right to your bottom line</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-item clickable" data-block="4" onclick="toggleBlock(4, true)">
+                        <div class="block-logo-container">
+                            <img src="R&E.png" alt="R&E Supply" class="company-logo-icon">
+                        </div>
+                        <div class="block-content">
+                            <h3 class="block-title">Head of IT</h3>
+                            <div class="block-description" id="block-desc-4">
+                                <p>Lantern will not be an 18 month integration project. We will have you ready to <span style="color: #00B0FF; font-weight: bold;">go-live in 2 weeks</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Quote Sections -->
+            <div class="quote-sections-container">
+                <!-- Quote Box 1 - Improved Cash Flow (Yellow) -->
+                <div class="quote-section yellow-bg active-quote" id="quote-1">
+                    <div class="quote-container">
+                        <div class="quote-author">
+                            <img src="monte.webp" alt="Monte Caplan" class="headshot-image">
+                            <div>
+                                <div class="author-name-quote">Monte Caplan</div>
+                                <div class="author-title-quote">CEO, CAPP</div>
+                            </div>
+                        </div>
+                        
+                        <blockquote class="main-quote">
+                            With <span class="highlight-lantern">Lantern</span>, we have achieved what many consider impossible. We are holding less inventory while delivering higher service levels, and our customers are thrilled.
+                        </blockquote>
+                        
+                        <div class="stats-container">
+                            <div class="stat-box">
+                                <div class="stat-number-large">$6.4M</div>
+                                <div class="stat-label-quote">Inventory reduced</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number-large">+10%</div>
+                                <div class="stat-label-quote">Fill Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quote Box 2 - Head of Purchasing (Cyan) -->
+                <div class="quote-section cyan-bg" id="quote-2">
+                    <div class="quote-container">
+                        <div class="quote-author">
+                            <img src="ofak.png" alt="Mike Ofak" class="headshot-image">
+                            <div>
+                                <div class="author-name-quote">Mike Ofak</div>
+                                <div class="author-title-quote">Head of Purchasing, Schaedler Yesco</div>
+                            </div>
+                        </div>
+                        
+                        <blockquote class="main-quote">
+                            Before <span class="highlight-lantern">Lantern</span>, I spent too much time fixing our ERP recommendations and chasing the market. Now, forecasting happens automatically and we stay ahead instead of catching up.
+                        </blockquote>
+                        
+                        <div class="stats-container">
+                            <div class="stat-box">
+                                <div class="stat-number-large">10+</div>
+                                <div class="stat-label-quote">Hours saved per week</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number-large">&lt;1 min</div>
+                                <div class="stat-label-quote">Reaction to the market</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quote Box 3 - Head of Finance (Green) -->
+                <div class="quote-section green-bg" id="quote-3">
+                    <div class="quote-container">
+                        <div class="quote-author">
+                            <img src="kevin.jpeg" alt="Kevin Szymanski" class="headshot-image">
+                            <div>
+                                <div class="author-name-quote">Kevin Szymanski</div>
+                                <div class="author-title-quote">Vice President of Strategy & Operations, Kele</div>
+                            </div>
+                        </div>
+                        
+                        <blockquote class="main-quote">
+                            With <span class="highlight-lantern">Lantern</span>, we have streamlined our operations by reducing special orders and minimizing excess inventory. These efficiencies have translated into measurable gains in enterprise value.
+                        </blockquote>
+                        
+                        <div class="stats-container">
+                            <div class="stat-box">
+                                <div class="stat-number-large">+2</div>
+                                <div class="stat-label-quote">Inventory Turns</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number-large">$200k</div>
+                                <div class="stat-label-quote">Saved annually in carrying cost</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quote Box 4 - Head of IT (Orange) -->
+                <div class="quote-section orange-bg" id="quote-4">
+                    <div class="quote-container">
+                        <div class="quote-author">
+                            <img src="jimmy.avif" alt="Jimmy Cobb" class="headshot-image">
+                            <div>
+                                <div class="author-name-quote">Jimmy Cobb</div>
+                                <div class="author-title-quote">Chief Information Officer, R&E Supply</div>
+                            </div>
+                        </div>
+                        
+                        <blockquote class="main-quote">
+                            After 20 years in the industry, I can honestly say <span class="highlight-lantern">Lantern</span> made onboarding effortless. It was the smoothest implementation I've had.
+                        </blockquote>
+                        
+                        <div class="stats-container">
+                            <div class="stat-box">
+                                <div class="stat-number-large">&lt;2 weeks</div>
+                                <div class="stat-label-quote">To go live</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number-large">100%</div>
+                                <div class="stat-label-quote">Compliance with security standards</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating logos for page 3 - COMMENTED OUT FOR STORAGE -->
+            <!-- <div class="floating-logo-page3 logo-4"><img src="SAP.png" alt="SAP"></div>
+            <div class="floating-logo-page3 logo-5"><img src="P21.webp" alt="Prophet21"></div>
+            <div class="floating-logo-page3 logo-6"><img src="Eclipse.webp" alt="Eclipse"></div> -->
+        </div>
+    </section>
+
+    <!-- Board of Advisors Section -->
+    <section id="advisors" class="advisors-section">
+        <div class="advisors-container">
+            <h2 class="advisors-title">Meet <span style="color: #00B0FF;">Lantern's</span> advisory board of distribution experts</h2>
+            
+            <div class="advisors-grid">
+                <!-- Advisor 1 -->
+                <a href="https://www.linkedin.com/in/dan-schuberth-10a9898/" target="_blank" rel="noopener noreferrer" class="advisor-card">
+                    <div class="advisor-photo">
+                        <img src="Dan.jpeg" alt="Dan Schuberth" class="advisor-img">
+                    </div>
+                    <h3 class="advisor-name">Dan Schuberth</h3>
+                    <p class="advisor-description">Chief Revenue Officer @ NAW</p>
+                </a>
+                
+                <!-- Advisor 2 -->
+                <a href="https://www.linkedin.com/in/mike-marks-46a7081/" target="_blank" rel="noopener noreferrer" class="advisor-card">
+                    <div class="advisor-photo">
+                        <img src="Mike.jpeg" alt="Mike Marks" class="advisor-img">
+                    </div>
+                    <h3 class="advisor-name">Mike Marks</h3>
+                    <p class="advisor-description">CEO @ Indian River Consulting</p>
+                </a>
+                
+                <!-- Advisor 3 -->
+                <a href="https://www.linkedin.com/in/keithhubs/" target="_blank" rel="noopener noreferrer" class="advisor-card">
+                    <div class="advisor-photo">
+                        <img src="Keith.jpeg" alt="Keith Hubbard" class="advisor-img">
+                    </div>
+                    <h3 class="advisor-name">Keith Hubbard</h3>
+                    <p class="advisor-description">ex-CEO @ PACE Supply</p>
+                </a>
+                
+                <!-- Advisor 4 -->
+                <a href="https://www.linkedin.com/in/pbarbeau/" target="_blank" rel="noopener noreferrer" class="advisor-card">
+                    <div class="advisor-photo">
+                        <img src="Pierre.jpeg" alt="Pierre Barbeau" class="advisor-img">
+                    </div>
+                    <h3 class="advisor-name">Pierre Barbeau</h3>
+                    <p class="advisor-description">CEO @ Moblico</p>
+                </a>
+                
+                <!-- Advisor 5 -->
+                <a href="https://www.linkedin.com/in/warrenchaiken/" target="_blank" rel="noopener noreferrer" class="advisor-card">
+                    <div class="advisor-photo">
+                        <img src="Warren.jpeg" alt="Warren Chaiken" class="advisor-img">
+                    </div>
+                    <h3 class="advisor-name">Warren Chaiken</h3>
+                    <p class="advisor-description">ex-CEO @ Almo</p>
+                </a>
+                
+                <!-- Advisor 6 -->
+                <a href="https://www.linkedin.com/in/jasonbader/" target="_blank" rel="noopener noreferrer" class="advisor-card">
+                    <div class="advisor-photo">
+                        <img src="Jason.jpeg" alt="Jason Bader" class="advisor-img">
+                    </div>
+                    <h3 class="advisor-name">Jason Bader</h3>
+                    <p class="advisor-description">CEO @ The Distribution Team</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="team-container">
+            <h2 class="team-title">Meet <span style="color: #00B0FF;">Lantern's</span> Team</h2>
+            
+            <div class="team-scroll-container">
+                <div class="team-scroll">
+                    <!-- Team Member 1 -->
+                    <a href="https://www.linkedin.com/in/shaurya-rathore-4967b4104/" target="_blank" rel="noopener noreferrer" class="team-card">
+                        <div class="team-card-image">
+                            <img src="Shaurya.jpeg" alt="Shaurya Rathore" class="team-img">
+                        </div>
+                        <div class="team-overlay">
+                            <h3 class="team-name">Shaurya Rathore</h3>
+                            <p class="team-role">Founding Software Engineer</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Team Member 2 -->
+                    <a href="https://www.linkedin.com/in/conorleen/" target="_blank" rel="noopener noreferrer" class="team-card">
+                        <div class="team-card-image">
+                            <img src="conor-headshot.jpg" alt="Conor Leen" class="team-img">
+                        </div>
+                        <div class="team-overlay">
+                            <h3 class="team-name">Conor Leen</h3>
+                            <p class="team-role">Co-Founder & President</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Team Member 3 -->
+                    <a href="https://www.linkedin.com/in/matt-rojas/" target="_blank" rel="noopener noreferrer" class="team-card">
+                        <div class="team-card-image">
+                            <img src="matt-headshot.jpg" alt="Matt Rojas" class="team-img">
+                        </div>
+                        <div class="team-overlay">
+                            <h3 class="team-name">Matt Rojas</h3>
+                            <p class="team-role">Co-Founder & CEO</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Team Member 4 -->
+                    <a href="https://www.linkedin.com/in/jayadeepshitole/" target="_blank" rel="noopener noreferrer" class="team-card">
+                        <div class="team-card-image">
+                            <img src="jay-headshot.jpg" alt="Jay Shitole" class="team-img">
+                        </div>
+                        <div class="team-overlay">
+                            <h3 class="team-name">Jay Shitole</h3>
+                            <p class="team-role">Co-Founder & CTO</p>
+                        </div>
+                    </a>
+                    
+                    <!-- Team Member 5 -->
+                    <a href="https://www.linkedin.com/in/adityamangal410/" target="_blank" rel="noopener noreferrer" class="team-card">
+                        <div class="team-card-image">
+                            <img src="Aditya.jpeg" alt="Aditya Mangal" class="team-img">
+                        </div>
+                        <div class="team-overlay">
+                            <h3 class="team-name">Aditya Mangal</h3>
+                            <p class="team-role">Founding AI Engineer</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Letter Section - Static -->
+    <section class="letter-section-static">
+        <div class="letter-container-static">
+            <h2 class="letter-section-title">Lighting the Way for Distributors</h2>
+            <div class="letter-layout">
+                <!-- Left Side Images Column -->
+                <div class="letter-left-column">
+                    <div class="letter-side-image">
+                        <div class="modern-polaroid polaroid-left-1">
+                            <img src="mdm5.jpeg" alt="Presenting at MDM SHIFT" class="polaroid-letter-img">
+                            <div class="polaroid-caption-letter">Presenting at MDM SHIFT</div>
+                        </div>
+                    </div>
+                    <div class="letter-side-image">
+                        <div class="modern-polaroid polaroid-left-2">
+                            <img src="dc1.avif" alt="Visiting our customers" class="polaroid-letter-img">
+                            <div class="polaroid-caption-letter">Visiting our customers</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="letter-content">
+                    <div class="letter-logo">
+                        <img src="Logo.svg" alt="Lantern" class="letter-lantern-icon">
+                        <span class="letter-logo-text">Lantern</span>
+                    </div>
+                    <div class="letter-text">
+                        <p>Dear Distributors,</p>
+                        
+                        <p>When we started our journey together at Stanford, we didn't expect it would lead us into the world of distribution — but it did, and we're grateful it did.</p>
+                        
+                        <p>Over the past two years, we've spoken with hundreds of distributors and leaders across the industry. What we found was inspiring. You are the ones who keep our economy moving. You work with grit, humility, and pride, solving real problems every single day.</p>
+                        
+                        <p>We've come to deeply admire this industry and the values that define it — hard work, community, and integrity.</p>
+                        
+                        <p>AI will never replace that spirit. It can only amplify it. The future of innovation isn't confined to Silicon Valley — it's being built in warehouses, branches, and distribution centers across the country.</p>
+                        
+                        <p>To every distributor out there: thank you for showing us what true innovation looks like.</p>
+                        
+                        <p>With respect and appreciation,</p>
+                        
+                        <div class="signatures-inline">
+                            <div class="signature-name-cursive">Shaurya Rathore</div>
+                            <div class="signature-name-cursive">Conor Leen</div>
+                            <div class="signature-name-cursive">Matt Rojas</div>
+                            <div class="signature-name-cursive">Jay Shitole</div>
+                            <div class="signature-name-cursive">Aditya Mangal</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side Image -->
+                <div class="letter-side-image letter-side-right">
+                    <div class="modern-polaroid">
+                        <img src="team1.webp" alt="First full team dinner" class="polaroid-letter-img">
+                        <div class="polaroid-caption-letter">First full team dinner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Company Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="Logo.svg" alt="Lantern" class="footer-lantern-icon">
+                        <span class="footer-logo-text">Lantern</span>
+                    </div>
+                    <p class="footer-tagline">Intelligence that guides distributor's purchasing</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/lantern-ai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#advisors">Advisors</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@lanternhq.com">info@lanternhq.com</a></li>
+                        <li>San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Lantern. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-cycle features every 8 seconds
+        let currentFeature = 1;
+        let featureInterval;
+        
+        function startFeatureCycle() {
+            featureInterval = setInterval(() => {
+                currentFeature = currentFeature >= 5 ? 1 : currentFeature + 1;
+                toggleFeature(currentFeature);
+            }, 8000); // 8 seconds
+        }
+        
+        function resetFeatureCycle() {
+            clearInterval(featureInterval);
+            startFeatureCycle();
+        }
+        
+        // Auto-cycle blocks (testimonials) every 20 seconds
+        let currentBlock = 1;
+        let blockInterval;
+        
+        function startBlockCycle() {
+            blockInterval = setInterval(() => {
+                currentBlock = currentBlock >= 4 ? 1 : currentBlock + 1;
+                toggleBlock(currentBlock);
+            }, 20000); // 20 seconds
+        }
+        
+        function resetBlockCycle() {
+            clearInterval(blockInterval);
+            startBlockCycle();
+        }
+        
+        // Start auto-cycles when page loads
+        window.addEventListener('load', () => {
+            startFeatureCycle();
+            startBlockCycle();
+        });
+        
+        function toggleFeature(featureNumber, manualClick = false) {
+            // Close all feature descriptions and remove active class
+            for (let i = 1; i <= 5; i++) {
+                const description = document.getElementById(`desc-${i}`);
+                description.style.display = 'none';
+                description.classList.remove('default-open');
+                
+                // Hide all product images
+                const image = document.getElementById(`image-${i}`);
+                image.classList.remove('active');
+                
+                // Remove active class from all feature items
+                const featureItem = document.querySelector(`[data-feature="${i}"]`);
+                if (featureItem) {
+                    featureItem.classList.remove('active');
+                }
+            }
+            
+            // Open the clicked feature
+            const clickedDescription = document.getElementById(`desc-${featureNumber}`);
+            clickedDescription.style.display = 'block';
+            
+            // Show the corresponding product image
+            const clickedImage = document.getElementById(`image-${featureNumber}`);
+            clickedImage.classList.add('active');
+            
+            // Add active class to clicked feature item
+            const clickedFeatureItem = document.querySelector(`[data-feature="${featureNumber}"]`);
+            if (clickedFeatureItem) {
+                clickedFeatureItem.classList.add('active');
+            }
+            
+            // Update current feature and reset cycle if manual click
+            currentFeature = featureNumber;
+            if (manualClick) {
+                resetFeatureCycle();
+            }
+        }
+        
+        function toggleBlock(blockNumber, manualClick = false) {
+            // Close all block descriptions and remove active class
+            for (let i = 1; i <= 4; i++) {
+                const description = document.getElementById(`block-desc-${i}`);
+                description.style.display = 'none';
+                description.classList.remove('default-open');
+                
+                // Hide all quote boxes
+                const quote = document.getElementById(`quote-${i}`);
+                if (quote) {
+                    quote.classList.remove('active-quote');
+                }
+                
+                // Remove active class from all block items
+                const blockItem = document.querySelector(`[data-block="${i}"]`);
+                if (blockItem) {
+                    blockItem.classList.remove('active');
+                }
+            }
+            
+            // Open the clicked block
+            const clickedDescription = document.getElementById(`block-desc-${blockNumber}`);
+            clickedDescription.style.display = 'block';
+            
+            // Show the corresponding quote box
+            const clickedQuote = document.getElementById(`quote-${blockNumber}`);
+            if (clickedQuote) {
+                clickedQuote.classList.add('active-quote');
+            }
+            
+            // Add active class to clicked block item
+            const clickedBlockItem = document.querySelector(`[data-block="${blockNumber}"]`);
+            if (clickedBlockItem) {
+                clickedBlockItem.classList.add('active');
+            }
+            
+            // Update current block and reset cycle if manual click
+            currentBlock = blockNumber;
+            if (manualClick) {
+                resetBlockCycle();
+            }
+        }
+    </script>
+
+</body>
+</html>
