@@ -5,6 +5,31 @@
     box-sizing: border-box;
 }
 
+/* Screen reader only - for accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus visible for accessibility - improves keyboard navigation */
+*:focus-visible {
+    outline: 2px solid #00B0FF;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Remove focus outline for mouse users */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -81,7 +106,9 @@ body {
     background: #FFD700;
     color: #333;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
+    min-height: 44px;
+    min-width: 44px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -91,6 +118,9 @@ body {
     text-decoration: none;
     white-space: nowrap;
     margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-demo-button:hover {
@@ -1931,10 +1961,40 @@ body {
 
 .advisors-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0px 40px;
-    max-width: 1000px;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 40px 40px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+/* First row: 4 advisors, each spanning 2 columns (fills 8 columns) */
+.advisors-grid .advisor-card:nth-child(1) {
+    grid-column: 1 / span 2;
+}
+
+.advisors-grid .advisor-card:nth-child(2) {
+    grid-column: 3 / span 2;
+}
+
+.advisors-grid .advisor-card:nth-child(3) {
+    grid-column: 5 / span 2;
+}
+
+.advisors-grid .advisor-card:nth-child(4) {
+    grid-column: 7 / span 2;
+}
+
+/* Second row: 3 advisors centered, each spanning 2 columns, with 1 column padding on each side */
+.advisors-grid .advisor-card:nth-child(5) {
+    grid-column: 2 / span 2;
+}
+
+.advisors-grid .advisor-card:nth-child(6) {
+    grid-column: 4 / span 2;
+}
+
+.advisors-grid .advisor-card:nth-child(7) {
+    grid-column: 6 / span 2;
 }
 
 .advisor-card {
@@ -3248,6 +3308,12 @@ body.letter-open {
     color: #0077B5;
     text-decoration: none;
     margin-top: 10px;
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
 }
 
 /* Company Experience Section */
