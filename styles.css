@@ -3404,27 +3404,39 @@ body.letter-open {
 }
 
 .company-logos {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 32px;
-    max-width: 1600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 48px 60px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
-    align-items: center;
-    justify-items: center;
 }
 
 .company-logo-img {
-    height: 45px;
-    width: 120px;
+    height: 60px;
+    width: 160px;
     object-fit: contain;
     object-position: center;
 }
 
 /* Special handling for Roblox logo */
 .company-logo-img[src*="roblox"] {
-    height: 60px;
-    width: 140px;
+    height: 80px;
+    width: 186px;
+}
+
+/* Special handling for U.S. Navy logo */
+.company-logo-img[src*="navy"] {
+    height: 90px;
+    width: 200px;
+}
+
+/* Special handling for IIT logo */
+.company-logo-img[src*="iit"] {
+    height: 90px;
+    width: 200px;
 }
 
 /* Mobile responsiveness for team section */
