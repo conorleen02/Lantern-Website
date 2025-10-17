@@ -53,7 +53,7 @@
     <main class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Supercharge Your Forecasting</h1>
-            <p class="hero-description">Never Stock Out. Never Overbuy. Lantern builds custom machine learning models for you to guide what, when, and how you buy.</p>
+            <p class="hero-description">Never Stock Out. Never Overbuy. Lantern uses cutting-edge machine learning to guide what, when, and how distributors buy.</p>
             <form class="cta-form" action="demo-form.html" method="get" aria-label="Book a demo form">
                 <div class="email-field">
                     <label for="email-input" class="sr-only">Email address</label>
@@ -89,7 +89,7 @@
     <!-- Data Flow Section -->
     <section class="data-flow-section">
         <div class="data-flow-container">
-            <h2 class="data-flow-title"><span style="color: #00B0FF;">Lantern</span> provides precise purchasing recommendations so you <span style="color: #00B0FF;">never overstock or miss a sale</span></h2>
+            <h2 class="data-flow-title"><span style="color: #00B0FF;">Lantern</span> provides precise purchase & transfer recommendations so you <span style="color: #00B0FF;">never miss a sale or hold dead inventory</span></h2>
             
             <div class="flow-diagram">
                 <!-- Left Side: Inputs -->
@@ -280,51 +280,6 @@
                     <div class="feature-item clickable" data-feature="3" onclick="toggleFeature(3, true)">
                         <div class="feature-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <div class="feature-content">
-                            <h3>Dynamic Safety Stock</h3>
-                            <div class="feature-description" id="desc-3">
-                                <p>We allocate safety stock based on <span style="color: #00B0FF; font-weight: bold;">service level targets</span> so you always have enough of your most important items.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feature-item clickable" data-feature="4" onclick="toggleFeature(4, true)">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="9" cy="21" r="1"/>
-                                <circle cx="20" cy="21" r="1"/>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                                <path d="M12 11l3 3 3-3"/>
-                            </svg>
-                        </div>
-                        <div class="feature-content">
-                            <h3>Forward Buying</h3>
-                            <div class="feature-description" id="desc-4">
-                                <p>Stop guessing your bulk buys. We tell you the <span style="color: #00B0FF; font-weight: bold;">smartest basket based on demand</span> and whether you should actually take the deal.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feature-item clickable" data-feature="5" onclick="toggleFeature(5, true)">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M2 12h20"/>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                            </svg>
-                        </div>
-                        <div class="feature-content">
-                            <h3>External Data</h3>
-                            <div class="feature-description" id="desc-5">
-                                <p>From weather to regulation, we use <span style="color: #00B0FF; font-weight: bold;">hundreds of external data sources</span> to give you demand forecasts you can bet your business on.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feature-item clickable" data-feature="6" onclick="toggleFeature(6, true)">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                                 <line x1="16" y1="2" x2="16" y2="6"/>
                                 <line x1="8" y1="2" x2="8" y2="6"/>
@@ -333,13 +288,27 @@
                             </svg>
                         </div>
                         <div class="feature-content">
-                            <h3>Order Frequency</h3>
-                            <div class="feature-description" id="desc-6">
-                                <p>We balance your carrying costs with your free freight targets to <span style="color: #00B0FF; font-weight: bold;">optimize when and how often you place orders</span>.</p>
+                            <h3>Smart Order Cycles</h3>
+                            <div class="feature-description" id="desc-3">
+                                <p>We balance carrying costs with free freight targets and supplier minimums to <span style="color: #00B0FF; font-weight: bold;">optimize when and how often you place orders</span>.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="feature-item clickable" data-feature="7" onclick="toggleFeature(7, true)">
+                    <div class="feature-item clickable" data-feature="4" onclick="toggleFeature(4, true)">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Dynamic Safety Stock</h3>
+                            <div class="feature-description" id="desc-4">
+                                <p>We allocate safety stock based on <span style="color: #00B0FF; font-weight: bold;">service level targets</span> so you always have enough of your most important items.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-item clickable" data-feature="5" onclick="toggleFeature(5, true)">
                         <div class="feature-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="2"/>
@@ -354,9 +323,40 @@
                             </svg>
                         </div>
                         <div class="feature-content">
-                            <h3>Network Classification</h3>
+                            <h3>Network Flexibility</h3>
+                            <div class="feature-description" id="desc-5">
+                                <p>Lantern can handle any type of business model: <span style="color: #00B0FF; font-weight: bold;">hub & spoke, distribution centers, individual branches</span>, and many more.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-item clickable" data-feature="6" onclick="toggleFeature(6, true)">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="9" cy="21" r="1"/>
+                                <circle cx="20" cy="21" r="1"/>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                <path d="M12 11l3 3 3-3"/>
+                            </svg>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Bulk Buying</h3>
+                            <div class="feature-description" id="desc-6">
+                                <p>Take advantage of <span style="color: #00B0FF; font-weight: bold;">supplier discounts</span> with confidence. We tell you which items to buy and if you should even take the deal at all.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-item clickable" data-feature="7" onclick="toggleFeature(7, true)">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <div class="feature-content">
+                            <h3>External Data</h3>
                             <div class="feature-description" id="desc-7">
-                                <p>Lantern will optimize inventory allocation for any network type: <span style="color: #00B0FF; font-weight: bold;">hub and spoke, distribution centre, single location</span>, and many more.</p>
+                                <p>From weather to regulation, we use <span style="color: #00B0FF; font-weight: bold;">hundreds of external data sources</span> to give you forecasts you can bet your business on.</p>
                             </div>
                         </div>
                     </div>
@@ -376,7 +376,7 @@
                         <img src="product-classification.png" alt="Dynamic Safety Stock Interface" class="screenshot-image">
                     </div>
                     <div class="product-image" id="image-4">
-                        <img src="forward-buying.png" alt="Forward Buying Interface" class="screenshot-image">
+                        <img src="forward-buying.png" alt="Bulk Buying Interface" class="screenshot-image">
                     </div>
                     <div class="product-image" id="image-5">
                         <div class="product-image-placeholder">
@@ -426,29 +426,29 @@
                         <div class="block-content">
                             <h3 class="block-title">Head of Purchasing</h3>
                             <div class="block-description" id="block-desc-2">
-                                <p>React instantly to the market, <span style="color: #00B0FF; font-weight: bold;">reduce time manually guessing demand</span>, and quickly onboard new team members.</p>
+                                <p>React instantly to the market, <span style="color: #00B0FF; font-weight: bold;">reduce time manually calculating demand</span>, and quickly onboard new team members.</p>
                             </div>
                         </div>
                     </div>
                     <div class="block-item clickable" data-block="3" onclick="toggleBlock(3, true)">
                         <div class="block-logo-container">
-                            <img src="2021-Lesman-Kele-Logo.png" alt="Lesman Kele" class="company-logo-icon">
+                            <img src="R&E.png" alt="R&E Supply" class="company-logo-icon">
                         </div>
                         <div class="block-content">
-                            <h3 class="block-title">Head of Finance</h3>
+                            <h3 class="block-title">Chief Financial Officer</h3>
                             <div class="block-description" id="block-desc-3">
-                                <p>Inventory turns, cash conversion cycles, and carrying cost matter. We help drive impact <span style="color: #00B0FF; font-weight: bold;">right to your bottom line</span>.</p>
+                                <p>Optimize inventory turns, cash conversion cycles, and carrying costs. We <span style="color: #00B0FF; font-weight: bold;">drive impact right to your bottom line</span>.</p>
                             </div>
                         </div>
                     </div>
                     <div class="block-item clickable" data-block="4" onclick="toggleBlock(4, true)">
                         <div class="block-logo-container">
-                            <img src="R&E.png" alt="R&E Supply" class="company-logo-icon">
+                            <img src="2021-Lesman-Kele-Logo.png" alt="Lesman Kele" class="company-logo-icon">
                         </div>
                         <div class="block-content">
-                            <h3 class="block-title">Head of IT</h3>
+                            <h3 class="block-title">Head of Technology</h3>
                             <div class="block-description" id="block-desc-4">
-                                <p>Lantern will not be an 18 month integration project. We will have you ready to <span style="color: #00B0FF; font-weight: bold;">go-live in 2 weeks</span>.</p>
+                                <p>18 month integration projects are a thing of the past. We'll have you ready to <span style="color: #00B0FF; font-weight: bold;">go live in 2 weeks</span>.</p>
                             </div>
                         </div>
                     </div>
@@ -469,7 +469,7 @@
                         </div>
                         
                         <blockquote class="main-quote">
-                            With <span class="highlight-lantern">Lantern</span>, we have achieved what many consider impossible. We are holding less inventory while delivering higher service levels, and our customers are thrilled.
+                            With <span class="highlight-lantern">Lantern</span>, we've achieved what many consider impossible. We're holding less inventory while delivering higher service levels, and our customers are thrilled.
                         </blockquote>
                         
                         <div class="stats-container">
@@ -513,19 +513,19 @@
                     </div>
                 </div>
                 
-                <!-- Quote Box 3 - Head of Finance (Green) -->
+                <!-- Quote Box 3 - CFO/COO (Green) -->
                 <div class="quote-section green-bg" id="quote-3">
                     <div class="quote-container">
                         <div class="quote-author">
-                            <img src="kevin.jpeg" alt="Kevin Szymanski" class="headshot-image">
+                            <img src="Pope.avif" alt="Jonathan Pope" class="headshot-image">
                             <div>
-                                <div class="author-name-quote">Kevin Szymanski</div>
-                                <div class="author-title-quote">Vice President of Strategy & Operations, Kele</div>
+                                <div class="author-name-quote">Jonathan Pope</div>
+                                <div class="author-title-quote">Chief Financial Officer + Chief Operations Officer, R&E Supply</div>
                             </div>
                         </div>
                         
                         <blockquote class="main-quote">
-                            With <span class="highlight-lantern">Lantern</span>, we have streamlined our operations by reducing special orders and minimizing excess inventory. These efficiencies have translated into measurable gains in enterprise value.
+                            With <span class="highlight-lantern">Lantern</span>, we hold significantly less inventory, turns are up, and carrying costs are down. These efficiencies have provided significant boosts to our enterprise value.
                         </blockquote>
                         
                         <div class="stats-container">
@@ -541,19 +541,19 @@
                     </div>
                 </div>
                 
-                <!-- Quote Box 4 - Head of IT (Orange) -->
+                <!-- Quote Box 4 - Head of Technology (Orange) -->
                 <div class="quote-section orange-bg" id="quote-4">
                     <div class="quote-container">
                         <div class="quote-author">
-                            <img src="jimmy.avif" alt="Jimmy Cobb" class="headshot-image">
+                            <img src="kevin.jpeg" alt="Kevin Szymanski" class="headshot-image">
                             <div>
-                                <div class="author-name-quote">Jimmy Cobb</div>
-                                <div class="author-title-quote">Chief Information Officer, R&E Supply</div>
+                                <div class="author-name-quote">Kevin Szymanski</div>
+                                <div class="author-title-quote">Vice President of Strategy & Operations, Kele</div>
                             </div>
                         </div>
                         
                         <blockquote class="main-quote">
-                            After 20 years in the industry, I can honestly say <span class="highlight-lantern">Lantern</span> made onboarding effortless. It was the smoothest implementation I've had.
+                            I can honestly say <span class="highlight-lantern">Lantern</span> made onboarding effortless. It was the smoothest implementation I've had.
                         </blockquote>
                         
                         <div class="stats-container">
@@ -685,7 +685,7 @@
                         <div class="step-number">2</div>
                     </div>
                     <div class="step-connector"></div>
-                    <h3 class="step-title">Test Lantern's impact using your data with a free proof of concept</h3>
+                    <h3 class="step-title">Test Lantern's impact with a free proof of concept</h3>
                 </div>
 
                 <!-- Step 3 -->
@@ -811,6 +811,7 @@
                     <img src="mckinsey-logo.png" alt="McKinsey & Company - Team member background" class="company-logo-img" loading="lazy" width="120" height="40">
                     <img src="roblox-logo.png" alt="Roblox - Team member background" class="company-logo-img" loading="lazy" width="120" height="40">
                     <img src="stanford-logo.avif" alt="Stanford University - Team member background" class="company-logo-img" loading="lazy" width="120" height="40">
+                    <img src="iit-logo.jpeg" alt="IIT - Team member background" class="company-logo-img" loading="lazy" width="120" height="40">
                 </div>
             </div>
 

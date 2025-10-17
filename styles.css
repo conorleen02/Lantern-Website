@@ -106,14 +106,14 @@ body {
     background: #FFD700;
     color: #333;
     border: none;
-    padding: 12px 24px;
+    padding: 14px 28px;
     min-height: 44px;
     min-width: 44px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    border-radius: 6px;
+    border-radius: 8px;
     font-family: 'Google Sans', sans-serif;
     text-decoration: none;
     white-space: nowrap;
@@ -121,11 +121,13 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
 }
 
 .header-demo-button:hover {
-    background: #FFC107;
-    transform: translateY(-1px);
+    background: #F5C300;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
 }
 
 /* Hero Section */
@@ -238,9 +240,10 @@ body {
     background: #FFD700;
     color: #333;
     border: none;
-    padding: 16px 16px;
+    padding: 18px 32px;
+    min-height: 44px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -253,11 +256,13 @@ body {
     border-top: 4px solid white;
     border-bottom: 4px solid white;
     text-decoration: none;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
 }
 
 .demo-button-cta:hover {
-    background: #FFC107;
-    transform: translateY(-1px);
+    background: #F5C300;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.6);
 }
 
 /* Partner Logos Section */
@@ -317,9 +322,10 @@ body {
     }
     
     .demo-button-cta {
-        padding: 14px 20px;
-        font-size: 14px;
+        padding: 16px 28px;
+        font-size: 15px;
         width: 100%;
+        min-height: 48px;
     }
     
     .logos-grid {
@@ -1502,40 +1508,52 @@ body {
 }
 
 .primary-cta {
-    background: #00B0FF;
-    color: white;
+    background: #FFD700;
+    color: #333;
     border: none;
-    padding: 16px 32px;
+    padding: 18px 40px;
+    min-height: 44px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: 'Google Sans', sans-serif;
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.4);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .primary-cta:hover {
-    background: #0099e6;
-    transform: translateY(-2px);
+    background: #F5C300;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(255, 215, 0, 0.6);
 }
 
+/* Ghost / Outline Style for Secondary CTAs */
 .secondary-cta {
-    background: white;
+    background: transparent;
     color: #00B0FF;
     border: 2px solid #00B0FF;
-    padding: 14px 30px;
+    padding: 16px 38px;
+    min-height: 44px;
     font-size: 16px;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: 'Google Sans', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .secondary-cta:hover {
     background: #00B0FF;
     color: white;
     transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 176, 255, 0.3);
 }
 
 .testimonial {
@@ -1628,6 +1646,8 @@ body {
     .secondary-cta {
         width: 100%;
         text-align: center;
+        padding: 16px 32px;
+        min-height: 48px;
     }
 }
 
@@ -3342,20 +3362,26 @@ body.letter-open {
 
 .company-logos {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 40px;
-    max-width: 1400px;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 32px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 60px;
+    padding: 0 40px;
     align-items: center;
     justify-items: center;
 }
 
 .company-logo-img {
-    height: 40px;
-    width: auto;
-    max-width: 150px;
+    height: 45px;
+    width: 120px;
     object-fit: contain;
+    object-position: center;
+}
+
+/* Special handling for Roblox logo */
+.company-logo-img[src*="roblox"] {
+    height: 60px;
+    width: 140px;
 }
 
 /* Mobile responsiveness for team section */
@@ -4105,20 +4131,25 @@ body.letter-open {
 .get-started-button {
     background: #FFD700;
     color: #333;
-    padding: 16px 40px;
+    padding: 18px 48px;
+    min-height: 44px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 8px;
     text-decoration: none;
     font-family: 'Google Sans', sans-serif;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.4);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .get-started-button:hover {
-    background: #FFC107;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    background: #F5C300;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(255, 215, 0, 0.6);
 }
 
 /* Responsive Design */
@@ -4170,8 +4201,9 @@ body.letter-open {
     }
     
     .get-started-button {
-        padding: 14px 32px;
+        padding: 16px 36px;
         font-size: 15px;
+        min-height: 48px;
     }
 }
 
