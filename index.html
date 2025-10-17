@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Lantern - AI-Powered Inventory Forecasting & Purchasing Intelligence</title>
+    <title>Lantern - Demand Forecasting</title>
     <meta name="description" content="Never stock out or overbuy. Lantern builds custom machine learning models to guide what, when, how much, and where to buy. Supercharge your inventory forecasting with AI.">
     <meta name="keywords" content="inventory forecasting, AI purchasing, machine learning inventory, demand forecasting, inventory optimization, supply chain AI">
     <meta name="author" content="Lantern">
@@ -89,7 +89,7 @@
     <!-- Data Flow Section -->
     <section class="data-flow-section">
         <div class="data-flow-container">
-            <h2 class="data-flow-title"><span style="color: #00B0FF;">Lantern</span> provides precise purchase & transfer recommendations so you <span style="color: #00B0FF;">never miss a sale or hold dead inventory</span></h2>
+            <h2 class="data-flow-title"><span style="color: #00B0FF;">Lantern</span> provides precise purchase & transfer recommendations so <span style="color: #00B0FF;">never overstock or miss a sale</span></h2>
             
             <div class="flow-diagram">
                 <!-- Left Side: Inputs -->
@@ -205,28 +205,40 @@
                 
                 <!-- SVG for connection lines -->
                 <svg class="flow-connections" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Arrow marker definitions -->
+                    <defs>
+                        <!-- Input arrow (pointing right toward Lantern) -->
+                        <marker id="arrowhead-input" markerWidth="20" markerHeight="20" refX="18" refY="10" orient="auto">
+                            <polygon points="0 4, 18 10, 0 16" fill="#555555" stroke="#555555" stroke-width="1" />
+                        </marker>
+                        <!-- Output arrow (pointing right from Lantern) -->
+                        <marker id="arrowhead-output" markerWidth="20" markerHeight="20" refX="18" refY="10" orient="auto">
+                            <polygon points="0 4, 18 10, 0 16" fill="#00B0FF" stroke="#00B0FF" stroke-width="1" />
+                        </marker>
+                    </defs>
+                    
                     <!-- Sales History to Center -->
-                    <path class="connection-line internal-line" d="M 250 100 Q 425 100 600 300" />
+                    <path class="connection-line internal-line" d="M 250 100 Q 425 100 600 300" marker-end="url(#arrowhead-input)" />
                     <!-- Purchase Orders to Center -->
-                    <path class="connection-line internal-line" d="M 250 180 Q 425 180 600 300" />
+                    <path class="connection-line internal-line" d="M 250 180 Q 425 180 600 300" marker-end="url(#arrowhead-input)" />
                     <!-- Inventory On-Hand to Center -->
-                    <path class="connection-line internal-line" d="M 250 240 Q 425 240 600 300" />
+                    <path class="connection-line internal-line" d="M 250 240 Q 425 240 600 300" marker-end="url(#arrowhead-input)" />
                     
                     <!-- Weather to Center -->
-                    <path class="connection-line external-line" d="M 250 360 Q 425 360 600 300" />
+                    <path class="connection-line external-line" d="M 250 360 Q 425 360 600 300" marker-end="url(#arrowhead-input)" />
                     <!-- Regulation to Center -->
-                    <path class="connection-line external-line" d="M 250 420 Q 425 420 600 300" />
-                    <!-- Building Permits to Center -->
-                    <path class="connection-line external-line" d="M 250 500 Q 425 500 600 300" />
+                    <path class="connection-line external-line" d="M 250 420 Q 425 420 600 300" marker-end="url(#arrowhead-input)" />
+                    <!-- Market Trends to Center -->
+                    <path class="connection-line external-line" d="M 250 500 Q 425 500 600 300" marker-end="url(#arrowhead-input)" />
                     
                     <!-- Center to What to Buy -->
-                    <path class="connection-line output-line" d="M 600 300 Q 775 180 950 180" />
+                    <path class="connection-line output-line" d="M 600 300 Q 775 180 950 180" marker-end="url(#arrowhead-output)" />
                     <!-- Center to How Much to Buy -->
-                    <path class="connection-line output-line" d="M 600 300 Q 775 300 950 300" />
+                    <path class="connection-line output-line" d="M 600 300 Q 775 300 950 300" marker-end="url(#arrowhead-output)" />
                     <!-- Center to When to Buy -->
-                    <path class="connection-line output-line" d="M 600 300 Q 775 420 950 420" />
+                    <path class="connection-line output-line" d="M 600 300 Q 775 420 950 420" marker-end="url(#arrowhead-output)" />
                     <!-- Center to Where to Stock -->
-                    <path class="connection-line output-line" d="M 600 300 Q 775 540 950 540" />
+                    <path class="connection-line output-line" d="M 600 300 Q 775 540 950 540" marker-end="url(#arrowhead-output)" />
                 </svg>
             </div>
             
