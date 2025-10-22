@@ -2745,19 +2745,21 @@ body.letter-open {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding-bottom: 30px;
-    border-bottom: 2px solid #f0f0f0;
+    background: transparent;
 }
 
 .letter-lantern-icon {
-    width: 32px;
-    height: 40px;
+    width: 48px;
+    height: 60px;
     display: block;
+    background: transparent;
+    opacity: 0.9;
 }
 
 .letter-logo-text {
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 600;
     color: #00B0FF;
 }
@@ -2792,6 +2794,15 @@ body.letter-open {
 
 .letter-text p {
     margin-bottom: 20px;
+    text-align: left;
+}
+
+.letter-greeting {
+    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+    font-size: 1.3rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #333;
 }
 
 .signatures {
@@ -3404,39 +3415,27 @@ body.letter-open {
 }
 
 .company-logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 48px 60px;
-    max-width: 1400px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 32px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 40px;
+    align-items: center;
+    justify-items: center;
 }
 
 .company-logo-img {
-    height: 60px;
-    width: 160px;
+    height: 45px;
+    width: 120px;
     object-fit: contain;
     object-position: center;
 }
 
 /* Special handling for Roblox logo */
 .company-logo-img[src*="roblox"] {
-    height: 80px;
-    width: 186px;
-}
-
-/* Special handling for U.S. Navy logo */
-.company-logo-img[src*="navy"] {
-    height: 90px;
-    width: 200px;
-}
-
-/* Special handling for IIT logo */
-.company-logo-img[src*="iit"] {
-    height: 90px;
-    width: 200px;
+    height: 60px;
+    width: 140px;
 }
 
 /* Mobile responsiveness for team section */
