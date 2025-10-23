@@ -2745,21 +2745,21 @@ body.letter-open {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-bottom: 20px;
-    padding-bottom: 30px;
+    margin-bottom: 5px;
+    padding-bottom: 8px;
     background: transparent;
 }
 
 .letter-lantern-icon {
-    width: 48px;
-    height: 60px;
+    width: 52px;
+    height: 65px;
     display: block;
     background: transparent;
     opacity: 0.9;
 }
 
 .letter-logo-text {
-    font-size: 36px;
+    font-size: 39px;
     font-weight: 600;
     color: #00B0FF;
 }
@@ -2798,10 +2798,10 @@ body.letter-open {
 }
 
 .letter-greeting {
-    font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
-    font-size: 1.3rem;
+    font-family: inherit;
+    font-size: 1.1rem;
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     color: #333;
 }
 
