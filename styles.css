@@ -300,6 +300,33 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .header {
+        height: 60px;
+        padding: 0 10px;
+    }
+    
+    .header-content {
+        padding: 0 15px;
+    }
+    
+    .logo {
+        left: 15px;
+    }
+    
+    .lantern-icon {
+        width: 28px;
+        height: 35px;
+    }
+    
+    .logo-text {
+        font-size: 20px;
+    }
+    
+    .header-demo-button {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
     }
@@ -339,16 +366,35 @@ body {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 30px 0 20px 0;
+    }
+    
+    .hero-content {
+        padding: 0 15px;
+        margin-top: 60px;
+    }
+    
     .hero-title {
         font-size: 2rem;
+        line-height: 1.2;
     }
     
     .hero-description {
         font-size: 1.15rem;
+        line-height: 1.6;
     }
     
     .hero-sub-description {
         font-size: 0.95rem;
+    }
+    
+    .cta-form {
+        max-width: 280px;
+    }
+    
+    .partner-logos {
+        margin-top: 100px;
     }
     
     .logos-grid {
@@ -1660,10 +1706,14 @@ body {
 @media (max-width: 768px) {
     .new-section {
         padding: 60px 0;
+        min-height: auto;
     }
     
     .new-section-container {
         padding: 0 20px;
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 40px;
     }
     
     .stats-grid {
@@ -1678,7 +1728,16 @@ body {
     }
     
     .section-main-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .section-description {
+        text-align: center;
     }
     
     .cta-buttons {
@@ -1692,15 +1751,50 @@ body {
         padding: 16px 32px;
         min-height: 48px;
     }
+    
+    .quote-sections-container {
+        padding: 20px;
+    }
+    
+    .quote-section {
+        padding: 30px 20px;
+    }
+    
+    .main-quote {
+        font-size: 1.3rem;
+        padding-left: 20px;
+    }
+    
+    .main-quote::before {
+        font-size: 2.5rem;
+    }
+    
+    .stats-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .stat-number-large {
+        font-size: 2.5rem;
+    }
 }
 
 @media (max-width: 768px) {
     .content-section {
         padding: 60px 0;
+        min-height: auto;
+    }
+    
+    .content-container {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 30px 20px;
+        gap: 40px;
     }
     
     .section-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        text-align: center;
     }
     
     .feature-item {
@@ -1711,6 +1805,15 @@ body {
     
     .panel-content {
         padding: 30px 20px;
+    }
+    
+    .right-content {
+        order: -1;
+    }
+    
+    .product-image-container {
+        height: 300px;
+        margin-bottom: 20px;
     }
 }
 
@@ -2061,17 +2164,21 @@ body {
     grid-column: 7 / span 2;
 }
 
-/* Second row: 3 advisors centered, each spanning 2 columns, with 1 column padding on each side */
+/* Second row: 4 advisors, each spanning 2 columns (fills 8 columns) */
 .advisors-grid .advisor-card:nth-child(5) {
-    grid-column: 2 / span 2;
+    grid-column: 1 / span 2;
 }
 
 .advisors-grid .advisor-card:nth-child(6) {
-    grid-column: 4 / span 2;
+    grid-column: 3 / span 2;
 }
 
 .advisors-grid .advisor-card:nth-child(7) {
-    grid-column: 6 / span 2;
+    grid-column: 5 / span 2;
+}
+
+.advisors-grid .advisor-card:nth-child(8) {
+    grid-column: 7 / span 2;
 }
 
 .advisor-card {
@@ -3306,6 +3413,57 @@ body.letter-open {
         align-items: center;
         gap: 15px;
     }
+    
+    .letter-section-static {
+        padding: 60px 0;
+    }
+    
+    .letter-container-static {
+        padding: 30px 20px;
+    }
+    
+    .letter-section-title {
+        font-size: 1.8rem;
+    }
+    
+    .letter-content {
+        padding: 30px 20px;
+    }
+    
+    .letter-left-column,
+    .letter-side-right,
+    .letter-side-image {
+        display: none;
+    }
+    
+    .letter-text {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .letter-logo {
+        margin-bottom: 20px;
+        padding: 20px 0 10px 0;
+    }
+    
+    .letter-lantern-icon {
+        width: 40px;
+        height: 50px;
+    }
+    
+    .letter-logo-text {
+        font-size: 32px;
+    }
+    
+    .signatures-inline {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .signature-name-cursive {
+        font-size: 1.1rem;
+    }
 }
 /* Team Section Styles */
 .team-section {
@@ -3368,6 +3526,21 @@ body.letter-open {
     object-fit: cover;
 }
 
+.conor-headshot-zoom {
+    transform: scale(1.33);
+    object-position: 40% center;
+}
+
+.shaurya-headshot-zoom {
+    transform: scale(1.13);
+    object-position: 25% 35%;
+}
+
+.jay-headshot-zoom {
+    transform: scale(1.2);
+    object-position: 35% center;
+}
+
 .team-overlay {
     text-align: center;
     padding: 0;
@@ -3416,7 +3589,7 @@ body.letter-open {
 
 .company-logos {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     gap: 32px;
     max-width: 1600px;
     margin: 0 auto;
@@ -3430,12 +3603,6 @@ body.letter-open {
     width: 120px;
     object-fit: contain;
     object-position: center;
-}
-
-/* Special handling for Roblox logo */
-.company-logo-img[src*="roblox"] {
-    height: 60px;
-    width: 140px;
 }
 
 /* Mobile responsiveness for team section */
@@ -4053,19 +4220,29 @@ body.letter-open {
 }
 
 @media (max-width: 480px) {
+    .data-flow-section {
+        padding: 60px 15px;
+    }
+    
     .data-flow-title {
-        font-size: 24px;
+        font-size: 20px;
         white-space: normal;
+        line-height: 1.4;
     }
     
     .data-flow-tagline {
-        font-size: 24px;
+        font-size: 20px;
         margin-top: 30px;
+        line-height: 1.4;
     }
     
     .flow-node {
-        font-size: 12px;
-        padding: 10px 14px;
+        font-size: 13px;
+        padding: 12px 16px;
+    }
+    
+    .flow-column {
+        max-width: 100%;
     }
     
     .ml-hub {
@@ -4076,6 +4253,10 @@ body.letter-open {
     .ml-core {
         width: 90px;
         height: 90px;
+    }
+    
+    .group-label {
+        font-size: 11px;
     }
 }
 
