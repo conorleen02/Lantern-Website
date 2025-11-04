@@ -559,6 +559,16 @@ body {
     image-rendering: crisp-edges;
 }
 
+.demand-forecast-image,
+.smart-leadtimes-image,
+.smart-ordercycles-image,
+.dynamic-safetystock-image,
+.network-flexibility-image,
+.bulk-buying-image,
+.external-data-image {
+    transform: scale(1.15);
+}
+
 /* Product Interface Styles */
 .product-interface {
     width: 100%;
@@ -3527,7 +3537,7 @@ body.letter-open {
 }
 
 .conor-headshot-zoom {
-    transform: scale(1.33);
+    transform: scale(1.38);
     object-position: 40% center;
 }
 
@@ -3539,6 +3549,11 @@ body.letter-open {
 .jay-headshot-zoom {
     transform: scale(1.2);
     object-position: 35% center;
+}
+
+.matt-headshot-zoom {
+    transform: scale(1.36);
+    object-position: 40% center;
 }
 
 .team-overlay {
@@ -3941,12 +3956,19 @@ body.letter-open {
 .flow-diagram {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 60px;
     min-height: 400px;
     transform: scale(0.85);
     transform-origin: center;
+}
+
+.data-flow-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .flow-column {

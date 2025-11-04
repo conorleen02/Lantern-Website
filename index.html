@@ -92,154 +92,7 @@
             <h2 class="data-flow-title"><span style="color: #00B0FF;">Lantern</span> provides precise purchase & transfer recommendations so <span style="color: #00B0FF;">never overstock</span> or <span style="color: #00B0FF;">miss a sale</span></h2>
             
             <div class="flow-diagram">
-                <!-- Left Side: Inputs -->
-                <div class="flow-column flow-inputs">
-                    <!-- Internal Data Group -->
-                    <div class="data-group">
-                        <div class="group-label internal-label">Internal Data</div>
-                        <div class="flow-node internal-node">
-                            <svg class="node-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="1" x2="12" y2="23"/>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                            <span>Sales History</span>
-                        </div>
-                        <div class="flow-node internal-node">
-                            <svg class="node-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                                <path d="M3 9h18M9 3v18"/>
-                            </svg>
-                            <span>Purchase Orders</span>
-                        </div>
-                        <div class="flow-node internal-node">
-                            <svg class="node-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                                <line x1="12" y1="22.08" x2="12" y2="12"/>
-                            </svg>
-                            <span>Inventory On-Hand</span>
-                        </div>
-                    </div>
-                    
-                    <!-- External Data Group -->
-                    <div class="data-group">
-                        <div class="group-label external-label">External Data</div>
-                        <div class="flow-node external-node">
-                            <svg class="node-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-                            </svg>
-                            <span>Weather</span>
-                        </div>
-                        <div class="flow-node external-node">
-                            <svg class="node-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                <polyline points="14 2 14 8 20 8"/>
-                                <line x1="16" y1="13" x2="8" y2="13"/>
-                                <line x1="16" y1="17" x2="8" y2="17"/>
-                                <polyline points="10 9 9 9 8 9"/>
-                            </svg>
-                            <span>Regulation</span>
-                        </div>
-                        <div class="flow-node external-node">
-                            <svg class="node-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                                <path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>
-                            </svg>
-                            <span>Market Trends</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Center: Lantern ML -->
-                <div class="flow-column flow-center">
-                    <div class="ml-hub">
-                        <div class="ml-rings">
-                            <div class="ml-ring ring-1"></div>
-                            <div class="ml-ring ring-2"></div>
-                            <div class="ml-ring ring-3"></div>
-                        </div>
-                        <div class="ml-core">
-                            <img src="Logo.svg" alt="Lantern" class="ml-logo-icon">
-                            <div class="ml-label">Lantern</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Right Side: Outputs -->
-                <div class="flow-column flow-outputs">
-                    <div class="flow-node output-node">
-                        <svg class="node-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                        <span>What to Buy</span>
-                    </div>
-                    <div class="flow-node output-node">
-                        <svg class="node-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="8" y1="6" x2="21" y2="6"/>
-                            <line x1="8" y1="12" x2="21" y2="12"/>
-                            <line x1="8" y1="18" x2="21" y2="18"/>
-                            <line x1="3" y1="6" x2="3.01" y2="6"/>
-                            <line x1="3" y1="12" x2="3.01" y2="12"/>
-                            <line x1="3" y1="18" x2="3.01" y2="18"/>
-                        </svg>
-                        <span>How Much to Buy</span>
-                    </div>
-                    <div class="flow-node output-node">
-                        <svg class="node-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
-                        </svg>
-                        <span>When to Buy</span>
-                    </div>
-                    <div class="flow-node output-node">
-                        <svg class="node-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9,22 9,12 15,12 15,22"/>
-                        </svg>
-                        <span>Where to Stock</span>
-                    </div>
-                </div>
-                
-                <!-- SVG for connection lines -->
-                <svg class="flow-connections" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Arrow marker definitions -->
-                    <defs>
-                        <!-- Input arrow (pointing right toward Lantern) -->
-                        <marker id="arrowhead-input" markerWidth="20" markerHeight="20" refX="18" refY="10" orient="auto">
-                            <polygon points="0 4, 18 10, 0 16" fill="#555555" stroke="#555555" stroke-width="1" />
-                        </marker>
-                        <!-- Output arrow (pointing right from Lantern) -->
-                        <marker id="arrowhead-output" markerWidth="20" markerHeight="20" refX="18" refY="10" orient="auto">
-                            <polygon points="0 4, 18 10, 0 16" fill="#00B0FF" stroke="#00B0FF" stroke-width="1" />
-                        </marker>
-                    </defs>
-                    
-                    <!-- Sales History to Center -->
-                    <path class="connection-line internal-line" d="M 250 100 Q 425 100 600 300" marker-end="url(#arrowhead-input)" />
-                    <!-- Purchase Orders to Center -->
-                    <path class="connection-line internal-line" d="M 250 180 Q 425 180 600 300" marker-end="url(#arrowhead-input)" />
-                    <!-- Inventory On-Hand to Center -->
-                    <path class="connection-line internal-line" d="M 250 240 Q 425 240 600 300" marker-end="url(#arrowhead-input)" />
-                    
-                    <!-- Weather to Center -->
-                    <path class="connection-line external-line" d="M 250 360 Q 425 360 600 300" marker-end="url(#arrowhead-input)" />
-                    <!-- Regulation to Center -->
-                    <path class="connection-line external-line" d="M 250 420 Q 425 420 600 300" marker-end="url(#arrowhead-input)" />
-                    <!-- Market Trends to Center -->
-                    <path class="connection-line external-line" d="M 250 500 Q 425 500 600 300" marker-end="url(#arrowhead-input)" />
-                    
-                    <!-- Center to What to Buy -->
-                    <path class="connection-line output-line" d="M 600 300 Q 775 180 950 180" marker-end="url(#arrowhead-output)" />
-                    <!-- Center to How Much to Buy -->
-                    <path class="connection-line output-line" d="M 600 300 Q 775 300 950 300" marker-end="url(#arrowhead-output)" />
-                    <!-- Center to When to Buy -->
-                    <path class="connection-line output-line" d="M 600 300 Q 775 420 950 420" marker-end="url(#arrowhead-output)" />
-                    <!-- Center to Where to Stock -->
-                    <path class="connection-line output-line" d="M 600 300 Q 775 540 950 540" marker-end="url(#arrowhead-output)" />
-                </svg>
+                <img src="Lantern_DataFlow.png" alt="Lantern Data Flow Diagram" class="data-flow-image">
             </div>
             
             <p class="data-flow-tagline">We take the guesswork out of purchasing</p>
@@ -378,29 +231,25 @@
             <div class="right-content">
                 <div class="product-image-container">
                     <div class="product-image active" id="image-1">
-                        <img src="demand-forecasting.png" alt="Demand Forecasting Interface" class="screenshot-image">
+                        <img src="Lantern_DemandForecasting.png" alt="Demand Forecasting Interface" class="screenshot-image demand-forecast-image">
                     </div>
                     <div class="product-image" id="image-2">
-                        <img src="smart-lead-times.png" alt="Smart Lead Times Interface" class="screenshot-image">
+                        <img src="Lantern_SmartLeadTimes.png" alt="Smart Lead Times Interface" class="screenshot-image smart-leadtimes-image">
                     </div>
                     <div class="product-image" id="image-3">
-                        <img src="product-classification.png" alt="Dynamic Safety Stock Interface" class="screenshot-image">
+                        <img src="Lantern_SmartOrderCycles.png" alt="Dynamic Safety Stock Interface" class="screenshot-image smart-ordercycles-image">
                     </div>
                     <div class="product-image" id="image-4">
-                        <img src="forward-buying.png" alt="Bulk Buying Interface" class="screenshot-image">
+                        <img src="Lantern_DynamicSafetyStock.png" alt="Bulk Buying Interface" class="screenshot-image dynamic-safetystock-image">
                     </div>
                     <div class="product-image" id="image-5">
-                        <div class="product-image-placeholder">
-                            <span>External Data<br/>Product Image</span>
-                        </div>
+                        <img src="Lantern_NetworkFlexibility.png" alt="Network Flexibility Interface" class="screenshot-image network-flexibility-image">
                     </div>
                     <div class="product-image" id="image-6">
-                        <img src="order-frequency.png" alt="Order Frequency Interface" class="screenshot-image">
+                        <img src="Lantern_BulkBuying.png" alt="Order Frequency Interface" class="screenshot-image bulk-buying-image">
                     </div>
                     <div class="product-image" id="image-7">
-                        <div class="product-image-placeholder">
-                            <span>Network Classification<br/>Product Image</span>
-                        </div>
+                        <img src="Lantern_ExternalData.png" alt="External Data Interface" class="screenshot-image external-data-image">
                     </div>
                 </div>
             </div>
@@ -772,7 +621,7 @@
                     <!-- Team Member 3 -->
                     <div class="team-card">
                         <div class="team-card-image">
-                            <img src="matt-headshot-new.jpeg" alt="Matt Rojas - Co-Founder & CEO at Lantern" class="team-img" loading="lazy" width="160" height="160">
+                            <img src="matt-headshot-new.jpeg" alt="Matt Rojas - Co-Founder & CEO at Lantern" class="team-img matt-headshot-zoom" loading="lazy" width="160" height="160">
                         </div>
                         <div class="team-overlay">
                             <h3 class="team-name">Matt Rojas</h3>
