@@ -2829,6 +2829,16 @@ body.letter-open {
     width: 100%;
 }
 
+.letter-right-column {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 380px;
+    align-self: flex-start;
+    margin-top: 40px;
+}
+
 .letter-side-right {
     width: 250px;
     flex-shrink: 0;
@@ -2849,6 +2859,14 @@ body.letter-open {
 
 .polaroid-left-2 {
     transform: rotate(-5deg);
+}
+
+.polaroid-right-1 {
+    transform: rotate(3deg);
+}
+
+.polaroid-right-2 {
+    transform: rotate(5deg);
 }
 
 .letter-side-right .modern-polaroid {
@@ -3462,6 +3480,7 @@ body.letter-open {
     }
     
     .letter-left-column,
+    .letter-right-column,
     .letter-side-right,
     .letter-side-image {
         display: none;
@@ -3558,23 +3577,27 @@ body.letter-open {
 }
 
 .conor-headshot-zoom {
-    transform: scale(1.38);
-    object-position: 40% center;
+    transform: scale(1.65);
+    transform-origin: center 40%;
+    object-position: 45% 75%;
 }
 
 .shaurya-headshot-zoom {
-    transform: scale(1.13);
-    object-position: 25% 35%;
+    transform: scale(1.4);
+    transform-origin: center 25%;
+    object-position: 18% 60%;
 }
 
 .jay-headshot-zoom {
-    transform: scale(1.2);
-    object-position: 35% center;
+    transform: scale(1.9);
+    transform-origin: center 30%;
+    object-position: 30% center;
 }
 
 .matt-headshot-zoom {
-    transform: scale(1.36);
-    object-position: 40% center;
+    transform: scale(1.6);
+    transform-origin: center 35%;
+    object-position: 45% 72%;
 }
 
 .team-overlay {
@@ -3625,10 +3648,11 @@ body.letter-open {
 
 .company-logos {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     gap: 32px;
     max-width: 1600px;
     margin: 0 auto;
+    margin-left: -40px;
     padding: 0 40px;
     align-items: center;
     justify-items: center;
