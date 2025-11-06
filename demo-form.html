@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Book a Demo - Lantern</title>
-    <!-- Preconnect to Calendly for faster loading -->
-    <link rel="preconnect" href="https://assets.calendly.com">
-    <link rel="preconnect" href="https://calendly.com">
-    <link rel="preconnect" href="https://api.calendly.com">
+    <!-- Preconnect to Calendly for faster loading - highest priority -->
+    <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+    <link rel="preconnect" href="https://calendly.com" crossorigin>
+    <link rel="preconnect" href="https://api.calendly.com" crossorigin>
     <link rel="dns-prefetch" href="https://assets.calendly.com">
     <link rel="dns-prefetch" href="https://calendly.com">
+    <link rel="dns-prefetch" href="https://api.calendly.com">
+    <!-- Preload Calendly widget script - critical resource -->
+    <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script" crossorigin>
+    <!-- Preconnect to fonts after Calendly -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -66,6 +72,12 @@
             height: 1200px;
             min-height: 1200px;
             position: relative;
+        }
+        
+        /* Optimize Calendly widget rendering */
+        .calendly-inline-widget {
+            min-width: 320px;
+            height: 1200px;
         }
         
         .calendly-loading {
@@ -145,29 +157,50 @@
             }
         }
     </style>
-    <!-- Load Calendly script early for faster initialization -->
+    <!-- Load Calendly script early - async to not block rendering -->
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
         // Hide loading placeholder when Calendly widget loads
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                var loadingElement = document.getElementById('calendlyLoading');
+        document.addEventListener('DOMContentLoaded', function() {
+            var loadingElement = document.getElementById('calendlyLoading');
+            
+            // Listen for Calendly's own load event (most reliable)
+            window.addEventListener('calendly.widget.loaded', function() {
                 if (loadingElement) {
                     loadingElement.classList.add('hidden');
                 }
-            }, 500);
-        });
-        
-        // Also listen for Calendly's own load event
-        window.addEventListener('calendly.widget.loaded', function() {
-            var loadingElement = document.getElementById('calendlyLoading');
-            if (loadingElement) {
-                loadingElement.classList.add('hidden');
-            }
+            });
+            
+            // Fallback: Check if widget is loaded after a short delay
+            setTimeout(function() {
+                var calendlyWidget = document.querySelector('.calendly-inline-widget iframe');
+                if (calendlyWidget && calendlyWidget.src && loadingElement) {
+                    loadingElement.classList.add('hidden');
+                }
+            }, 1000);
+            
+            // Additional fallback: Check periodically if widget exists
+            var checkInterval = setInterval(function() {
+                var calendlyWidget = document.querySelector('.calendly-inline-widget iframe');
+                if (calendlyWidget && calendlyWidget.src && calendlyWidget.src !== 'about:blank' && loadingElement) {
+                    loadingElement.classList.add('hidden');
+                    clearInterval(checkInterval);
+                }
+            }, 200);
+            
+            // Final fallback: Hide after max wait time
+            setTimeout(function() {
+                if (loadingElement) {
+                    loadingElement.classList.add('hidden');
+                }
+                clearInterval(checkInterval);
+            }, 5000);
         });
         
         // Prevent page scroll when clicking dates in Calendly widget
         document.addEventListener('DOMContentLoaded', function() {
+            
+            // Prevent page scroll when clicking dates in Calendly widget
             var savedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
             
             // Save scroll position periodically
