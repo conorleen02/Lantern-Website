@@ -230,25 +230,25 @@
             <div class="right-content">
                 <div class="product-image-container">
                     <div class="product-image active" id="image-1">
-                        <img src="Lantern_DemandForecasting.png" alt="Demand Forecasting Interface" class="screenshot-image demand-forecast-image">
+                        <img src="Lantern_DemandForecasting_V3.png" alt="Demand Forecasting Interface" class="screenshot-image demand-forecast-image">
                     </div>
                     <div class="product-image" id="image-2">
-                        <img src="Lantern_SmartLeadTimes.png" alt="Smart Lead Times Interface" class="screenshot-image smart-leadtimes-image">
+                        <img src="Lantern_SmartLeadTimes_V3.png" alt="Smart Lead Times Interface" class="screenshot-image smart-leadtimes-image">
                     </div>
                     <div class="product-image" id="image-3">
-                        <img src="Lantern_SmartOrderCycles.png" alt="Dynamic Safety Stock Interface" class="screenshot-image smart-ordercycles-image">
+                        <img src="Lantern_SmartOrderCycles_V3.png" alt="Dynamic Safety Stock Interface" class="screenshot-image smart-ordercycles-image">
                     </div>
                     <div class="product-image" id="image-4">
-                        <img src="Lantern_DynamicSafetyStock.png" alt="Bulk Buying Interface" class="screenshot-image dynamic-safetystock-image">
+                        <img src="Lantern_DynamicSafetyStock_V3.png" alt="Bulk Buying Interface" class="screenshot-image dynamic-safetystock-image">
                     </div>
                     <div class="product-image" id="image-5">
-                        <img src="Lantern_NetworkFlexibility.png" alt="Network Flexibility Interface" class="screenshot-image network-flexibility-image">
+                        <img src="Lantern_NetworkFlexibility_V3.png" alt="Network Flexibility Interface" class="screenshot-image network-flexibility-image">
                     </div>
                     <div class="product-image" id="image-6">
-                        <img src="Lantern_BulkBuying.png" alt="Order Frequency Interface" class="screenshot-image bulk-buying-image">
+                        <img src="Lantern_BulkBuying_final.png" alt="Order Frequency Interface" class="screenshot-image bulk-buying-image">
                     </div>
                     <div class="product-image" id="image-7">
-                        <img src="Lantern_ExternalData.png" alt="External Data Interface" class="screenshot-image external-data-image">
+                        <img src="Lantern_ExternalData_final.png" alt="External Data Interface" class="screenshot-image external-data-image">
                     </div>
                 </div>
             </div>
@@ -383,7 +383,7 @@
                         </div>
                         
                         <blockquote class="main-quote">
-                            With <span class="highlight-lantern">Lantern</span>, we hold significantly less inventory, turns are up, and carrying costs are down. These efficiencies have provided significant boosts to our enterprise value.
+                            With <span class="highlight-lantern">Lantern</span>, we hold significantly less inventory, turns are up, and carrying costs are down. These efficiencies have provided massive boosts to our enterprise value.
                         </blockquote>
                         
                         <div class="stats-container">
@@ -838,17 +838,18 @@
         let currentFeature = 1;
         let featureInterval;
         
-        function startFeatureCycle() {
-            featureInterval = setInterval(() => {
-                currentFeature = currentFeature >= 7 ? 1 : currentFeature + 1;
-                toggleFeature(currentFeature);
-            }, 8000); // 8 seconds
-        }
+        // Auto-rotation functions disabled - features now only change on user click
+        // function startFeatureCycle() {
+        //     featureInterval = setInterval(() => {
+        //         currentFeature = currentFeature >= 7 ? 1 : currentFeature + 1;
+        //         toggleFeature(currentFeature);
+        //     }, 8000); // 8 seconds
+        // }
         
-        function resetFeatureCycle() {
-            clearInterval(featureInterval);
-            startFeatureCycle();
-        }
+        // function resetFeatureCycle() {
+        //     clearInterval(featureInterval);
+        //     startFeatureCycle();
+        // }
         
         // Auto-cycle blocks (testimonials) every 20 seconds
         let currentBlock = 1;
@@ -868,7 +869,7 @@
         
         // Start auto-cycles when page loads
         window.addEventListener('load', () => {
-            startFeatureCycle();
+            // startFeatureCycle(); // Auto-rotation disabled - users must click to navigate features
             startBlockCycle();
         });
         
@@ -906,9 +907,10 @@
             
             // Update current feature and reset cycle if manual click
             currentFeature = featureNumber;
-            if (manualClick) {
-                resetFeatureCycle();
-            }
+            // Auto-rotation disabled - no need to reset cycle on manual click
+            // if (manualClick) {
+            //     resetFeatureCycle();
+            // }
         }
         
         function toggleBlock(blockNumber, manualClick = false) {

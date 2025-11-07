@@ -83,8 +83,10 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    max-width: 100%;
     height: 100%;
-    padding: 0 40px;
+    padding: 0;
+    margin: 0;
 }
 
 .logo {
@@ -92,7 +94,7 @@ body {
     align-items: center;
     gap: 8px;
     position: absolute;
-    left: 40px;
+    left: 20px;
     text-decoration: none !important;
     cursor: pointer;
     transition: opacity 0.2s ease;
@@ -143,7 +145,8 @@ body {
     font-family: 'Google Sans', sans-serif;
     text-decoration: none;
     white-space: nowrap;
-    margin-left: auto;
+    position: absolute;
+    right: 20px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -163,7 +166,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('1.png') center/contain no-repeat;
+    background: url('6 (2)_almost.png') center/contain no-repeat;
     background-color: #f8f9fa;
     padding: 40px 0 30px 0;
     border-radius: 15px;
@@ -178,7 +181,7 @@ body {
     z-index: 10;
     max-width: 800px;
     padding: 0 20px;
-    margin-top: 80px;
+    margin-top: 75px;
 }
 
 .hero-title {
@@ -294,15 +297,15 @@ body {
 
 /* Partner Logos Section */
 .partner-logos {
-    margin-top: 180px;
+    margin-top: 280px;
     margin-bottom: 10px;
 }
 
 .logos-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 60px;
-    max-width: 800px;
+    gap: 15px;
+    max-width: 600px;
     margin: 0 auto;
     align-items: center;
     justify-items: center;
@@ -321,8 +324,36 @@ body {
     filter: brightness(0) invert(1);
 }
 
+.partner-logo[src="CAPP.png"] {
+    height: 28px;
+    max-width: 120px;
+}
+
+.partner-logo[src="2021-Lesman-Kele-Logo.png"] {
+    margin-left: -10px;
+}
+
 .partner-logo:hover {
     opacity: 1;
+}
+
+/* Large screens - adjust header alignment */
+@media (min-width: 1600px) {
+    .logo {
+        left: 40px;
+    }
+    .header-demo-button {
+        right: 40px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+    .logo {
+        left: 30px;
+    }
+    .header-demo-button {
+        right: 30px;
+    }
 }
 
 /* Responsive Design */
@@ -334,6 +365,7 @@ body {
     
     .header-content {
         padding: 0 15px;
+        max-width: calc(100vw - 30px);
     }
     
     .logo {
@@ -352,6 +384,7 @@ body {
     .header-demo-button {
         padding: 10px 20px;
         font-size: 13px;
+        right: 15px;
     }
     
     .hero-title {
@@ -384,11 +417,20 @@ body {
     
     .logos-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 40px 30px;
+        gap: 10px 8px;
     }
     
     .partner-logo {
         height: 30px;
+    }
+    
+    .partner-logo[src="CAPP.png"] {
+        height: 24px;
+        max-width: 100px;
+    }
+    
+    .partner-logo[src="2021-Lesman-Kele-Logo.png"] {
+        margin-left: -8px;
     }
 }
 
@@ -399,7 +441,7 @@ body {
     
     .hero-content {
         padding: 0 15px;
-        margin-top: 60px;
+        margin-top: 55px;
     }
     
     .hero-title {
@@ -421,24 +463,33 @@ body {
     }
     
     .partner-logos {
-        margin-top: 100px;
+        margin-top: 160px;
     }
     
     .logos-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 8px;
     }
     
     .partner-logo {
         height: 25px;
     }
+    
+    .partner-logo[src="CAPP.png"] {
+        height: 20px;
+        max-width: 90px;
+    }
+    
+    .partner-logo[src="2021-Lesman-Kele-Logo.png"] {
+        margin-left: -5px;
+    }
 }
 
 /* New Content Section */
 .content-section {
-    min-height: 100vh;
+    min-height: auto;
     background: #FFFFFF;
-    padding: 0;
+    padding: 0 0 20px 0;
     margin-top: 0;
 }
 
@@ -450,7 +501,8 @@ body {
     grid-template-columns: 350px 1fr;
     gap: 40px;
     align-items: stretch;
-    height: 100vh;
+    height: auto;
+    min-height: calc(100vh - 120px);
 }
 
 /* Left Content Area - Content and Features */
@@ -460,6 +512,7 @@ body {
     gap: 10px;
     width: 100%;
     padding-top: 30px;
+    padding-bottom: 10px;
     justify-content: flex-start;
 }
 
@@ -537,7 +590,7 @@ body {
 
 .product-image-container {
     width: 100%;
-    height: 80%;
+    height: 85%;
     position: relative;
     display: flex;
     align-items: center;
@@ -576,7 +629,7 @@ body {
 }
 
 .screenshot-image {
-    max-width: 720px;
+    max-width: 780px;
     max-height: 100%;
     width: auto;
     height: auto;
@@ -586,14 +639,32 @@ body {
     image-rendering: crisp-edges;
 }
 
-.demand-forecast-image,
-.smart-leadtimes-image,
-.smart-ordercycles-image,
-.dynamic-safetystock-image,
-.network-flexibility-image,
-.bulk-buying-image,
+.demand-forecast-image {
+    transform: scale(1.1) translateY(0);
+}
+
+.smart-leadtimes-image {
+    transform: scale(1.1) translateY(10px);
+}
+
+.smart-ordercycles-image {
+    transform: scale(1.1) translateY(20px);
+}
+
+.dynamic-safetystock-image {
+    transform: scale(1.1) translateY(30px);
+}
+
+.network-flexibility-image {
+    transform: scale(1.1) translateY(40px);
+}
+
+.bulk-buying-image {
+    transform: scale(1.1) translateY(50px);
+}
+
 .external-data-image {
-    transform: scale(1.15);
+    transform: scale(1.1) translateY(60px);
 }
 
 /* Product Interface Styles */
@@ -1067,6 +1138,11 @@ body {
 
 .feature-item:last-child {
     border-bottom: none;
+    padding-bottom: 10px;
+}
+
+.feature-item.active:last-child {
+    padding-bottom: 10px;
 }
 
 .feature-item.clickable {
@@ -1093,7 +1169,7 @@ body {
 
 .feature-item.active .feature-icon {
     align-self: flex-start;
-    margin-top: 4px;
+    margin-top: -2px;
 }
 
 .feature-icon svg {
@@ -1141,8 +1217,8 @@ body {
     margin-top: 8px;
     animation: slideDown 0.3s ease-out;
     width: 100%;
-    min-height: 80px;
-    height: 80px;
+    min-height: auto;
+    height: auto;
     overflow: hidden;
 }
 
@@ -1153,7 +1229,6 @@ body {
 .feature-description p {
     margin: 0;
     padding: 0;
-    height: 100%;
     overflow-y: auto;
 }
 
@@ -1230,6 +1305,14 @@ body {
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+
+/* Reduce spacing for all customer quotes */
+.quote-section.yellow-bg .quote-container,
+.quote-section.cyan-bg .quote-container,
+.quote-section.green-bg .quote-container,
+.quote-section.orange-bg .quote-container {
+    gap: 20px;
 }
 
 .headshot-image {
@@ -1853,7 +1936,7 @@ body {
     }
     
     .product-image-container {
-        height: 300px;
+        height: 320px;
         margin-bottom: 20px;
     }
 }
@@ -2158,7 +2241,7 @@ body {
 .advisors-section {
     min-height: 100vh;
     background: #FFFFFF;
-    padding: 120px 0;
+    padding: 70px 0 40px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2296,7 +2379,7 @@ body {
 
 @media (max-width: 768px) {
     .advisors-section {
-        padding: 80px 0;
+        padding: 55px 0 35px 0;
     }
     
     .advisors-container {
@@ -2462,7 +2545,7 @@ body {
 .letter-section-static {
     min-height: auto;
     background: #F8F9FA;
-    padding: 120px 0;
+    padding: 50px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3474,7 +3557,7 @@ body.letter-open {
     }
     
     .letter-section-static {
-        padding: 60px 0;
+        padding: 40px 0;
     }
     
     .letter-container-static {
@@ -3528,7 +3611,7 @@ body.letter-open {
 /* Team Section Styles */
 .team-section {
     background: #FFFFFF;
-    padding: 120px 0;
+    padding: 80px 0;
     position: relative;
 }
 
@@ -3727,7 +3810,7 @@ body.letter-open {
 
 @media (max-width: 768px) {
     .team-section {
-        padding: 80px 0;
+        padding: 60px 0;
     }
     
     .team-title {
@@ -3976,14 +4059,16 @@ body.letter-open {
 
 /* Data Flow Section */
 .data-flow-section {
-    padding: 120px 40px;
+    padding: 60px 20px;
     background: #F8F9FA;
     position: relative;
+    overflow-x: hidden;
 }
 
 .data-flow-container {
-    max-width: 1400px;
+    max-width: 100%;
     margin: 0 auto;
+    padding: 0;
 }
 
 .data-flow-title {
@@ -4003,7 +4088,7 @@ body.letter-open {
     font-weight: 400;
     color: #1a1a1a;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     line-height: 1.4;
     max-width: 900px;
     margin-left: auto;
@@ -4021,9 +4106,10 @@ body.letter-open {
     justify-content: center;
     align-items: center;
     gap: 60px;
-    min-height: 400px;
-    transform: scale(0.85);
+    min-height: 500px;
+    transform: scale(1.15);
     transform-origin: center;
+    margin: 20px 0;
 }
 
 .data-flow-image {
@@ -4244,6 +4330,7 @@ body.letter-open {
 @media (max-width: 1200px) {
     .flow-diagram {
         gap: 40px;
+        transform: scale(1.05);
     }
     
     .flow-node {
@@ -4265,7 +4352,7 @@ body.letter-open {
 
 @media (max-width: 900px) {
     .data-flow-section {
-        padding: 80px 20px;
+        padding: 40px 20px;
     }
     
     .data-flow-title {
@@ -4275,7 +4362,7 @@ body.letter-open {
     
     .data-flow-subtitle {
         font-size: 18px;
-        margin-bottom: 30px;
+        margin-bottom: 45px;
         white-space: normal;
     }
     
@@ -4287,6 +4374,8 @@ body.letter-open {
         flex-direction: column;
         gap: 60px;
         min-height: auto;
+        transform: scale(1.0);
+        margin: 10px 0;
     }
     
     .flow-column {
@@ -4310,7 +4399,7 @@ body.letter-open {
 
 @media (max-width: 480px) {
     .data-flow-section {
-        padding: 60px 15px;
+        padding: 30px 15px;
     }
     
     .data-flow-title {
@@ -4321,7 +4410,7 @@ body.letter-open {
     
     .data-flow-subtitle {
         font-size: 16px;
-        margin-bottom: 24px;
+        margin-bottom: 35px;
         line-height: 1.4;
         white-space: normal;
     }
