@@ -1,347 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
     <title>Book a Demo - Lantern</title>
     <!-- Preconnect to Calendly for faster loading - highest priority -->
-    <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
-    <link rel="preconnect" href="https://calendly.com" crossorigin>
-    <link rel="preconnect" href="https://api.calendly.com" crossorigin>
-    <link rel="dns-prefetch" href="https://assets.calendly.com">
-    <link rel="dns-prefetch" href="https://calendly.com">
-    <link rel="dns-prefetch" href="https://api.calendly.com">
+    <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
+    <link rel="preconnect" href="https://calendly.com" crossorigin />
+    <link rel="preconnect" href="https://api.calendly.com" crossorigin />
+    <link rel="dns-prefetch" href="https://assets.calendly.com" />
+    <link rel="dns-prefetch" href="https://calendly.com" />
+    <link rel="dns-prefetch" href="https://api.calendly.com" />
     <!-- Preload Calendly widget script - critical resource -->
-    <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script" crossorigin>
+    <link
+      rel="preload"
+      href="https://assets.calendly.com/assets/external/widget.js"
+      as="script"
+      crossorigin
+    />
     <!-- Preconnect to fonts after Calendly -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* Prevent smooth scrolling that might interfere */
-        html {
-            scroll-behavior: auto !important;
+      /* Prevent smooth scrolling that might interfere */
+      html {
+        scroll-behavior: auto !important;
+      }
+
+      /* Demo Form Specific Styles */
+      .demo-form-page {
+        min-height: 100vh;
+        background: #f8f9fa;
+        padding: 40px 0;
+      }
+
+      .demo-form-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .demo-form-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .demo-form-title {
+        font-family: "Google Sans", sans-serif;
+        font-size: 2.8rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 16px;
+      }
+
+      .demo-form-subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 32px;
+        line-height: 1.6;
+      }
+
+      .calendly-card {
+        background: white;
+        border-radius: 16px;
+        padding: 10px 48px 10px 48px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e0e0e0;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .calendly-wrapper {
+        width: 100%;
+        height: fit-content;
+        /* min-height: 1200px; */
+        position: relative;
+      }
+      /* Make Calendly expand naturally with content and prevent inner scroll */
+      .calendly-inline-widget iframe {
+        height: 100% !important;
+        min-height: 1090px; /* adjust if needed */
+        overflow: visible !important;
+        border: none !important;
+      }
+
+      /* Ensure Calendly wrapper expands with content */
+      .calendly-wrapper {
+        height: auto !important;
+        min-height: 900px; /* to avoid cutoff on initial load */
+        overflow: visible !important;
+      }
+
+      /* Remove potential nested scrolling */
+      .calendly-inline-widget {
+        height: auto !important;
+        overflow: visible !important;
+      }
+      /* Optimize Calendly widget rendering */
+      .calendly-inline-widget {
+        min-height: fit-content;
+      }
+
+      .calendly-loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f8f9fa;
+        border-radius: 8px;
+        z-index: 1;
+      }
+
+      .calendly-loading.hidden {
+        display: none;
+      }
+
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #e0e0e0;
+        border-top-color: #00b0ff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
         }
-        
-        /* Demo Form Specific Styles */
-        .demo-form-page {
-            min-height: 100vh;
-            background: #f8f9fa;
-            padding: 40px 0;
-        }
-        
+      }
+
+      .loading-text {
+        margin-top: 16px;
+        color: #666;
+        font-size: 16px;
+        font-family: "Google Sans", sans-serif;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: #00b0ff;
+        font-weight: 500;
+        margin-bottom: 32px;
+        transition: color 0.3s ease;
+      }
+
+      .back-link:hover {
+        color: #0099e6;
+      }
+
+      @media (max-width: 768px) {
         .demo-form-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+          max-width: 1000px;
+          margin: 0 auto;
+          padding: 0 0px;
         }
-        
-        .demo-form-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .demo-form-title {
-            font-family: 'Google Sans', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 16px;
-        }
-        
-        .demo-form-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 32px;
-            line-height: 1.6;
-        }
-        
         .calendly-card {
-            background: white;
-            border-radius: 16px;
-            padding: 10px 48px 10px 48px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e0e0e0;
-            max-width: 900px;
-            margin: 0 auto;
+          padding: 7px 24px 7px 24px;
         }
-        
+
+        .demo-form-title {
+          font-size: 2.2rem;
+        }
+
+        .demo-form-subtitle {
+          font-size: 1.1rem;
+        }
+
         .calendly-wrapper {
-            width: 100%;
-            height: 1200px;
-            min-height: 1200px;
-            position: relative;
+          /* height: 900px;
+               min-height: 900px; */
         }
-        
-        /* Optimize Calendly widget rendering */
-        .calendly-inline-widget {
-            min-width: 320px;
-            height: 1200px;
-        }
-        
-        .calendly-loading {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #f8f9fa;
-            border-radius: 8px;
-            z-index: 1;
-        }
-        
-        .calendly-loading.hidden {
-            display: none;
-        }
-        
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid #e0e0e0;
-            border-top-color: #00B0FF;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .loading-text {
-            margin-top: 16px;
-            color: #666;
-            font-size: 16px;
-            font-family: 'Google Sans', sans-serif;
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            color: #00B0FF;
-            font-weight: 500;
-            margin-bottom: 32px;
-            transition: color 0.3s ease;
-        }
-        
-        .back-link:hover {
-            color: #0099e6;
-        }
-        
-        @media (max-width: 768px) {
-            .calendly-card {
-                padding: 7px 24px 7px 24px;
-            }
-            
-            .demo-form-title {
-                font-size: 2.2rem;
-            }
-            
-            .demo-form-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .calendly-wrapper {
-                height: 900px;
-                min-height: 900px;
-            }
-            
-            .calendly-inline-widget {
-                height: 900px !important;
-            }
-        }
+
+        /* .calendly-inline-widget {
+               height: 900px !important;
+             } */
+      }
     </style>
     <!-- Load Calendly script early - async to not block rendering -->
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script
+      type="text/javascript"
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
     <script>
-        // Hide loading placeholder when Calendly widget loads
-        document.addEventListener('DOMContentLoaded', function() {
-            var loadingElement = document.getElementById('calendlyLoading');
-            
-            // Listen for Calendly's own load event (most reliable)
-            window.addEventListener('calendly.widget.loaded', function() {
-                if (loadingElement) {
-                    loadingElement.classList.add('hidden');
-                }
-            });
-            
-            // Fallback: Check if widget is loaded after a short delay
-            setTimeout(function() {
-                var calendlyWidget = document.querySelector('.calendly-inline-widget iframe');
-                if (calendlyWidget && calendlyWidget.src && loadingElement) {
-                    loadingElement.classList.add('hidden');
-                }
-            }, 1000);
-            
-            // Additional fallback: Check periodically if widget exists
-            var checkInterval = setInterval(function() {
-                var calendlyWidget = document.querySelector('.calendly-inline-widget iframe');
-                if (calendlyWidget && calendlyWidget.src && calendlyWidget.src !== 'about:blank' && loadingElement) {
-                    loadingElement.classList.add('hidden');
-                    clearInterval(checkInterval);
-                }
-            }, 200);
-            
-            // Final fallback: Hide after max wait time
-            setTimeout(function() {
-                if (loadingElement) {
-                    loadingElement.classList.add('hidden');
-                }
-                clearInterval(checkInterval);
-            }, 5000);
+      // Hide loading placeholder when Calendly widget loads
+      document.addEventListener("DOMContentLoaded", function () {
+        var loadingElement = document.getElementById("calendlyLoading");
+
+        // Listen for Calendly's own load event (most reliable)
+        window.addEventListener("calendly.widget.loaded", function () {
+          if (loadingElement) {
+            loadingElement.classList.add("hidden");
+          }
         });
-        
+
+        // Fallback: Check if widget is loaded after a short delay
+        setTimeout(function () {
+          var calendlyWidget = document.querySelector(
+            ".calendly-inline-widget iframe"
+          );
+          if (calendlyWidget && calendlyWidget.src && loadingElement) {
+            loadingElement.classList.add("hidden");
+          }
+        }, 1000);
+
+        // Additional fallback: Check periodically if widget exists
+        var checkInterval = setInterval(function () {
+          var calendlyWidget = document.querySelector(
+            ".calendly-inline-widget iframe"
+          );
+          if (
+            calendlyWidget &&
+            calendlyWidget.src &&
+            calendlyWidget.src !== "about:blank" &&
+            loadingElement
+          ) {
+            loadingElement.classList.add("hidden");
+            clearInterval(checkInterval);
+          }
+        }, 200);
+
+        // Final fallback: Hide after max wait time
+        setTimeout(function () {
+          if (loadingElement) {
+            loadingElement.classList.add("hidden");
+          }
+          clearInterval(checkInterval);
+        }, 5000);
+      });
+
+      // Prevent page scroll when clicking dates in Calendly widget
+      document.addEventListener("DOMContentLoaded", function () {
         // Prevent page scroll when clicking dates in Calendly widget
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // Prevent page scroll when clicking dates in Calendly widget
-            var savedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Save scroll position periodically
-            setInterval(function() {
-                savedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-            }, 100);
-            
-            // Prevent scroll on hash change (Calendly uses hash anchors)
-            window.addEventListener('hashchange', function(e) {
-                e.preventDefault();
-                e.stopImmediatePropagation();
-                window.scrollTo(0, savedScrollPosition);
-                return false;
-            }, false);
-            
-            // Prevent scroll on Calendly form submission
-            window.addEventListener('calendly.widget.submitted', function() {
-                setTimeout(function() {
-                    window.scrollTo({
-                        top: savedScrollPosition,
-                        behavior: 'instant'
-                    });
-                }, 10);
+        var savedScrollPosition =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        // Save scroll position periodically
+        setInterval(function () {
+          savedScrollPosition =
+            window.pageYOffset || document.documentElement.scrollTop;
+        }, 100);
+
+        // Prevent scroll on hash change (Calendly uses hash anchors)
+        window.addEventListener(
+          "hashchange",
+          function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            window.scrollTo(0, savedScrollPosition);
+            return false;
+          },
+          false
+        );
+
+        // Prevent scroll on Calendly form submission
+        window.addEventListener("calendly.widget.submitted", function () {
+          setTimeout(function () {
+            window.scrollTo({
+              top: savedScrollPosition,
+              behavior: "instant",
             });
-            
-            // Intercept and prevent unwanted scrolls
-            var isUserScrolling = false;
-            var scrollTimeout;
-            var preventScrollUntil = 0;
-            
-            window.addEventListener('scroll', function(e) {
-                clearTimeout(scrollTimeout);
-                
-                // If we're in the prevention period (after form submission), always restore
-                if (Date.now() < preventScrollUntil) {
-                    window.scrollTo({
-                        top: savedScrollPosition,
-                        behavior: 'instant'
-                    });
-                    return;
-                }
-                
-                if (!isUserScrolling) {
-                    var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-                    var scrollDiff = currentScroll - savedScrollPosition;
-                    
-                    // If scroll jumped significantly down (likely from Calendly), restore position
-                    if (scrollDiff > 300) {
-                        window.scrollTo({
-                            top: savedScrollPosition,
-                            behavior: 'instant'
-                        });
-                        // Prevent scrolling for a short period after this
-                        preventScrollUntil = Date.now() + 1000;
-                    }
-                }
-                
-                scrollTimeout = setTimeout(function() {
-                    savedScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-                    isUserScrolling = false;
-                }, 150);
-            }, { passive: false });
-            
-            // Track user-initiated scrolling
-            ['wheel', 'touchstart', 'touchmove', 'keydown'].forEach(function(event) {
-                window.addEventListener(event, function() {
-                    isUserScrolling = true;
-                }, { passive: true });
-            });
-            
-            // Monitor for form submissions inside Calendly iframe
-            var calendlyWrapper = document.querySelector('.calendly-wrapper');
-            if (calendlyWrapper) {
-                // Listen for any iframe messages that might indicate form submission
-                window.addEventListener('message', function(e) {
-                    if (e.data && (e.data.event === 'calendly.widget.submitted' || e.data.type === 'calendly')) {
-                        preventScrollUntil = Date.now() + 2000;
-                        setTimeout(function() {
-                            window.scrollTo({
-                                top: savedScrollPosition,
-                                behavior: 'instant'
-                            });
-                        }, 10);
-                    }
-                });
-                
-                // Also monitor for clicks on submit buttons (fallback)
-                setTimeout(function() {
-                    var iframe = calendlyWrapper.querySelector('iframe');
-                    if (iframe) {
-                        // Watch for hash changes that might happen after form submission
-                        var lastHash = window.location.hash;
-                        setInterval(function() {
-                            if (window.location.hash !== lastHash) {
-                                lastHash = window.location.hash;
-                                preventScrollUntil = Date.now() + 2000;
-                                setTimeout(function() {
-                                    window.scrollTo({
-                                        top: savedScrollPosition,
-                                        behavior: 'instant'
-                                    });
-                                }, 10);
-                            }
-                        }, 100);
-                    }
-                }, 2000);
-            }
+          }, 10);
         });
+
+        // Intercept and prevent unwanted scrolls
+        var isUserScrolling = false;
+        var scrollTimeout;
+        var preventScrollUntil = 0;
+
+        window.addEventListener(
+          "scroll",
+          function (e) {
+            clearTimeout(scrollTimeout);
+
+            // If we're in the prevention period (after form submission), always restore
+            if (Date.now() < preventScrollUntil) {
+              window.scrollTo({
+                top: savedScrollPosition,
+                behavior: "instant",
+              });
+              return;
+            }
+
+            if (!isUserScrolling) {
+              var currentScroll =
+                window.pageYOffset || document.documentElement.scrollTop;
+              var scrollDiff = currentScroll - savedScrollPosition;
+
+              // If scroll jumped significantly down (likely from Calendly), restore position
+              if (scrollDiff > 300) {
+                window.scrollTo({
+                  top: savedScrollPosition,
+                  behavior: "instant",
+                });
+                // Prevent scrolling for a short period after this
+                preventScrollUntil = Date.now() + 1000;
+              }
+            }
+
+            scrollTimeout = setTimeout(function () {
+              savedScrollPosition =
+                window.pageYOffset || document.documentElement.scrollTop;
+              isUserScrolling = false;
+            }, 150);
+          },
+          { passive: false }
+        );
+
+        // Track user-initiated scrolling
+        ["wheel", "touchstart", "touchmove", "keydown"].forEach(function (
+          event
+        ) {
+          window.addEventListener(
+            event,
+            function () {
+              isUserScrolling = true;
+            },
+            { passive: true }
+          );
+        });
+
+        // Monitor for form submissions inside Calendly iframe
+        var calendlyWrapper = document.querySelector(".calendly-wrapper");
+        if (calendlyWrapper) {
+          // Listen for any iframe messages that might indicate form submission
+          window.addEventListener("message", function (e) {
+            if (
+              e.data &&
+              (e.data.event === "calendly.widget.submitted" ||
+                e.data.type === "calendly")
+            ) {
+              preventScrollUntil = Date.now() + 2000;
+              setTimeout(function () {
+                window.scrollTo({
+                  top: savedScrollPosition,
+                  behavior: "instant",
+                });
+              }, 10);
+            }
+          });
+
+          // Also monitor for clicks on submit buttons (fallback)
+          setTimeout(function () {
+            var iframe = calendlyWrapper.querySelector("iframe");
+            if (iframe) {
+              // Watch for hash changes that might happen after form submission
+              var lastHash = window.location.hash;
+              setInterval(function () {
+                if (window.location.hash !== lastHash) {
+                  lastHash = window.location.hash;
+                  preventScrollUntil = Date.now() + 2000;
+                  setTimeout(function () {
+                    window.scrollTo({
+                      top: savedScrollPosition,
+                      behavior: "instant",
+                    });
+                  }, 10);
+                }
+              }, 100);
+            }
+          }, 2000);
+        }
+      });
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <div class="header-content">
-            <a href="index.html" class="logo">
-                <img src="Logo.svg" alt="Lantern" class="lantern-icon">
-                <span class="logo-text">Lantern</span>
-            </a>
-        </div>
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="Logo.svg" alt="Lantern" class="lantern-icon" />
+          <span class="logo-text">Lantern</span>
+        </a>
+      </div>
     </header>
 
     <main class="demo-form-page">
-        <div class="demo-form-container">
-            <a href="index.html" class="back-link">
-                ← Back to Home
-            </a>
-            
-            <div class="calendly-card">
-                <!-- Calendly inline widget -->
-                <div class="calendly-wrapper">
-                    <div class="calendly-loading" id="calendlyLoading">
-                        <div class="loading-spinner"></div>
-                        <div class="loading-text">Loading calendar...</div>
-                    </div>
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/d/cw5w-ypj-grd/lantern-product-demo" style="min-width:320px;height:1200px;"></div>
-                </div>
+      <div class="demo-form-container">
+        <a href="index.html" class="back-link"> ← Back to Home </a>
+
+        <div class="calendly-card">
+          <!-- Calendly inline widget -->
+          <div class="calendly-wrapper">
+            <div class="calendly-loading" id="calendlyLoading">
+              <div class="loading-spinner"></div>
+              <div class="loading-text">Loading calendar...</div>
             </div>
-
+            <div
+              class="calendly-inline-widget"
+              data-url="https://calendly.com/d/cw5w-ypj-grd/lantern-product-demo"
+            ></div>
+          </div>
         </div>
+      </div>
     </main>
-
-
-</body>
+  </body>
 </html>
