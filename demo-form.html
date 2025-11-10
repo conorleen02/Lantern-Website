@@ -33,19 +33,34 @@
       /* Prevent smooth scrolling that might interfere */
       html {
         scroll-behavior: auto !important;
+        overflow-x: hidden !important;
+        height: 100%;
+      }
+
+      /* Override body border for demo form page to prevent double scroll */
+      body {
+        border: none !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100vh;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
       }
 
       /* Demo Form Specific Styles */
       .demo-form-page {
         min-height: 100vh;
-        background: #f8f9fa;
-        padding: 40px 0;
+        overflow-x: hidden;
+        position: relative;
       }
 
       .demo-form-container {
         max-width: 1000px;
         margin: 0 auto;
         padding: 0 20px;
+        margin-top: 60px;
       }
 
       .demo-form-header {
@@ -69,44 +84,32 @@
       }
 
       .calendly-card {
-        background: white;
         border-radius: 16px;
         padding: 10px 48px 10px 48px;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-        border: 1px solid #e0e0e0;
         max-width: 900px;
         margin: 0 auto;
       }
 
       .calendly-wrapper {
         width: 100%;
-        height: fit-content;
-        /* min-height: 1200px; */
         position: relative;
       }
-      /* Make Calendly expand naturally with content and prevent inner scroll */
+
+      /* Let Calendly handle all sizing and scrolling naturally */
+      .calendly-inline-widget {
+        position: relative;
+        display: block;
+        width: 100%;
+        min-height: 1200px;
+        height: 1200px;
+      }
+
       .calendly-inline-widget iframe {
+        width: 100% !important;
         height: 100% !important;
-        min-height: 1090px; /* adjust if needed */
-        overflow: visible !important;
+        min-height: 1200px;
         border: none !important;
-      }
-
-      /* Ensure Calendly wrapper expands with content */
-      .calendly-wrapper {
-        height: auto !important;
-        min-height: 900px; /* to avoid cutoff on initial load */
-        overflow: visible !important;
-      }
-
-      /* Remove potential nested scrolling */
-      .calendly-inline-widget {
-        height: auto !important;
-        overflow: visible !important;
-      }
-      /* Optimize Calendly widget rendering */
-      .calendly-inline-widget {
-        min-height: fit-content;
+        display: block;
       }
 
       .calendly-loading {
@@ -159,6 +162,8 @@
         font-weight: 500;
         margin-bottom: 32px;
         transition: color 0.3s ease;
+        margin-left: 20px;
+        margin-top: 20px;
       }
 
       .back-link:hover {
@@ -168,7 +173,7 @@
       @media (max-width: 768px) {
         .demo-form-container {
           max-width: 1000px;
-          margin: 0 auto;
+
           padding: 0 0px;
         }
         .calendly-card {
@@ -183,14 +188,15 @@
           font-size: 1.1rem;
         }
 
-        .calendly-wrapper {
-          /* height: 900px;
-               min-height: 900px; */
+        /* Let Calendly handle sizing on mobile too */
+        .calendly-inline-widget {
+          min-height: 600px;
+          height: 600px;
         }
 
-        /* .calendly-inline-widget {
-               height: 900px !important;
-             } */
+        .calendly-inline-widget iframe {
+          min-height: 600px;
+        }
       }
     </style>
     <!-- Load Calendly script early - async to not block rendering -->
@@ -204,11 +210,53 @@
       document.addEventListener("DOMContentLoaded", function () {
         var loadingElement = document.getElementById("calendlyLoading");
 
+        // Function to fix double scrollbar - only remove body border, don't interfere with Calendly
+        function fixDoubleScrollbar() {
+          // Only ensure body doesn't have border creating double scroll
+          // Let Calendly handle all its own sizing and scrolling naturally
+          var body = document.body;
+          if (body) {
+            body.style.border = "none";
+            body.style.boxSizing = "border-box";
+          }
+
+          // Ensure Calendly widget has proper initial height
+          var calendlyWidget = document.querySelector(
+            ".calendly-inline-widget"
+          );
+          if (calendlyWidget) {
+            // Set initial height if not already set
+            if (
+              !calendlyWidget.style.height ||
+              calendlyWidget.style.height === "auto"
+            ) {
+              calendlyWidget.style.height = "1200px";
+              calendlyWidget.style.minHeight = "1200px";
+            }
+
+            var iframe = calendlyWidget.querySelector("iframe");
+            if (iframe) {
+              // Ensure iframe has initial height - Calendly will resize it
+              if (
+                !iframe.style.height ||
+                iframe.style.height === "auto" ||
+                iframe.style.height === ""
+              ) {
+                iframe.style.height = "1200px";
+                iframe.style.minHeight = "1200px";
+              }
+            }
+          }
+        }
+
         // Listen for Calendly's own load event (most reliable)
         window.addEventListener("calendly.widget.loaded", function () {
           if (loadingElement) {
             loadingElement.classList.add("hidden");
           }
+
+          // Fix double scrollbar issue
+          setTimeout(fixDoubleScrollbar, 500);
         });
 
         // Fallback: Check if widget is loaded after a short delay
@@ -218,6 +266,7 @@
           );
           if (calendlyWidget && calendlyWidget.src && loadingElement) {
             loadingElement.classList.add("hidden");
+            fixDoubleScrollbar();
           }
         }, 1000);
 
@@ -233,6 +282,7 @@
             loadingElement
           ) {
             loadingElement.classList.add("hidden");
+            fixDoubleScrollbar();
             clearInterval(checkInterval);
           }
         }, 200);
@@ -242,6 +292,7 @@
           if (loadingElement) {
             loadingElement.classList.add("hidden");
           }
+          fixDoubleScrollbar();
           clearInterval(checkInterval);
         }, 5000);
       });
@@ -280,17 +331,13 @@
           }, 10);
         });
 
-        // Intercept and prevent unwanted scrolls
-        var isUserScrolling = false;
-        var scrollTimeout;
+        // Only prevent hash-change scrolls, allow all normal scrolling
         var preventScrollUntil = 0;
 
         window.addEventListener(
           "scroll",
           function (e) {
-            clearTimeout(scrollTimeout);
-
-            // If we're in the prevention period (after form submission), always restore
+            // Only interfere during prevention period (after form submission/hash change)
             if (Date.now() < preventScrollUntil) {
               window.scrollTo({
                 top: savedScrollPosition,
@@ -299,43 +346,14 @@
               return;
             }
 
-            if (!isUserScrolling) {
-              var currentScroll =
-                window.pageYOffset || document.documentElement.scrollTop;
-              var scrollDiff = currentScroll - savedScrollPosition;
-
-              // If scroll jumped significantly down (likely from Calendly), restore position
-              if (scrollDiff > 300) {
-                window.scrollTo({
-                  top: savedScrollPosition,
-                  behavior: "instant",
-                });
-                // Prevent scrolling for a short period after this
-                preventScrollUntil = Date.now() + 1000;
-              }
-            }
-
-            scrollTimeout = setTimeout(function () {
-              savedScrollPosition =
-                window.pageYOffset || document.documentElement.scrollTop;
-              isUserScrolling = false;
-            }, 150);
+            // Update saved position for normal scrolling
+            savedScrollPosition =
+              window.pageYOffset || document.documentElement.scrollTop;
           },
-          { passive: false }
+          { passive: true }
         );
 
-        // Track user-initiated scrolling
-        ["wheel", "touchstart", "touchmove", "keydown"].forEach(function (
-          event
-        ) {
-          window.addEventListener(
-            event,
-            function () {
-              isUserScrolling = true;
-            },
-            { passive: true }
-          );
-        });
+        // No need to track user scrolling anymore - we only prevent hash-change jumps
 
         // Monitor for form submissions inside Calendly iframe
         var calendlyWrapper = document.querySelector(".calendly-wrapper");
