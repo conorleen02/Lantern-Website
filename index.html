@@ -102,7 +102,8 @@
         <h1 class="hero-title">Supercharge Your Forecasting</h1>
         <p class="hero-description">
           Never Stock Out. Never Overbuy. Lantern uses cutting-edge machine
-          learning to guide what, when, and how distributors buy.
+          learning to guide what, when, and how
+          <span style="white-space: nowrap">distributors buy.</span>
         </p>
         <form
           class="cta-form"
@@ -237,14 +238,19 @@
           >
           or
           <span style="color: #00b0ff; font-weight: 700"
-            ><strong>miss a sale</strong></span
+            ><strong style="white-space: nowrap">miss a sale</strong></span
           >
         </p>
         <div class="flow-diagram">
           <img
             src="Lantern_DataFlow.png"
             alt="Lantern Data Flow Diagram"
-            class="data-flow-image"
+            class="data-flow-image data-flow-desktop"
+          />
+          <img
+            src="dataflow-mobile.png"
+            alt="Lantern Data Flow Diagram"
+            class="data-flow-image data-flow-mobile"
           />
         </div>
       </div>
@@ -1529,7 +1535,7 @@
               loading="lazy"
               width="170"
               height="65"
-              style="height: 45px"
+              style="height: 48px"
             />
             <img
               src="mckinsey-logo.png"
@@ -1538,7 +1544,7 @@
               loading="lazy"
               width="150"
               height="50"
-              style="height: 45px"
+              style="height: 52px"
             />
             <img
               src="stanford-logo.avif"
@@ -1547,13 +1553,14 @@
               loading="lazy"
               width="120"
               height="40"
+              style="height: 52px"
             />
             <img
               src="Navy_logo_new.png"
               alt="Navy - Team member background"
               class="company-logo-img"
               loading="lazy"
-              style="height: 70px"
+              style="height: 80px"
             />
             <img
               src="iit-logo.jpeg"
@@ -1562,7 +1569,7 @@
               loading="lazy"
               width="170"
               height="80"
-              style="height: 70px"
+              style="height: 80px"
             />
           </div>
         </div>
@@ -1788,22 +1795,23 @@
       let currentBlock = 1;
       let blockInterval;
 
-      function startBlockCycle() {
-        blockInterval = setInterval(() => {
-          currentBlock = currentBlock >= 4 ? 1 : currentBlock + 1;
-          toggleBlock(currentBlock);
-        }, 20000); // 20 seconds
-      }
+      // Auto-rotation functions disabled - testimonials now only change on user click
+      // function startBlockCycle() {
+      //   blockInterval = setInterval(() => {
+      //     currentBlock = currentBlock >= 4 ? 1 : currentBlock + 1;
+      //     toggleBlock(currentBlock);
+      //   }, 20000); // 20 seconds
+      // }
 
-      function resetBlockCycle() {
-        clearInterval(blockInterval);
-        startBlockCycle();
-      }
+      // function resetBlockCycle() {
+      //   clearInterval(blockInterval);
+      //   startBlockCycle();
+      // }
 
       // Start auto-cycles when page loads
       window.addEventListener("load", () => {
         // startFeatureCycle(); // Auto-rotation disabled - users must click to navigate features
-        startBlockCycle();
+        // startBlockCycle(); // Auto-rotation disabled - users must click to navigate testimonials
       });
 
       function toggleFeature(featureNumber, manualClick = false) {
@@ -1892,9 +1900,10 @@
 
         // Update current block and reset cycle if manual click
         currentBlock = blockNumber;
-        if (manualClick) {
-          resetBlockCycle();
-        }
+        // Auto-rotation disabled - no need to reset cycle on manual click
+        // if (manualClick) {
+        //   resetBlockCycle();
+        // }
       }
     </script>
   </body>
