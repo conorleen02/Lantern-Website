@@ -1396,8 +1396,6 @@ body {
 
 /* Monte - properly zoomed to fill circle with face */
 .monte-headshot {
-  width: 100px !important;
-  height: 100px !important;
   object-fit: cover;
   object-position: 130% 0%;
   /* Positioned further right and at top to center face */
@@ -1405,8 +1403,6 @@ body {
 
 /* Jonathan - zoomed in (larger face, crops edges) */  
 .jonathan-headshot {
-  width: 100px !important;
-  height: 100px !important;
   /* Cover fills the circle and naturally creates a zoom effect */
   object-fit: cover;
   /* Center horizontally, adjust vertical to focus on face */
@@ -1991,7 +1987,8 @@ body {
   }
 
   .section-title {
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: 700;
     text-align: center;
   }
 
@@ -2131,7 +2128,8 @@ body {
   }
 
   .section-title {
-    font-size: 19px;
+    font-size: 24px;
+    font-weight: 700;
     text-align: center;
   }
 
@@ -2172,7 +2170,7 @@ body {
   .feature-content h3 {
     grid-row: 1;
     grid-column: 2;
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
     line-height: 32px;
   }
@@ -2713,7 +2711,7 @@ body {
   }
 
   .advisors-title {
-    font-size: 18px;
+    font-size: 24px;
     margin-bottom: 50px;
   }
 
@@ -3923,7 +3921,7 @@ body.letter-open {
   }
 
   .letter-section-title {
-    font-size: 26px;
+    font-size: 24px;
     margin-bottom: 25px;
   }
 
@@ -3941,6 +3939,10 @@ body.letter-open {
   .letter-text {
     font-size: 1rem;
     line-height: 1.7;
+  }
+  
+  .letter-greeting {
+    font-size: 1rem;
   }
 
   .letter-logo {
@@ -3963,7 +3965,7 @@ body.letter-open {
   }
 
   .signature-name-cursive {
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
 }
 /* Team Section Styles */
@@ -4175,7 +4177,7 @@ body.letter-open {
   }
 
   .team-title {
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 20px;
   }
 
@@ -4214,9 +4216,31 @@ body.letter-open {
     height: 30px;
     max-width: 100px;
   }
+  
+  /* Make Walmart and McKinsey logos larger on mobile */
+  .company-logo-img[alt*="Walmart"] {
+    height: 40px;
+    max-width: 130px;
+  }
+  
+  .company-logo-img[alt*="McKinsey"] {
+    height: 40px;
+    max-width: 130px;
+  }
 }
 
 @media (max-width: 600px) {
+  /* Keep Walmart and McKinsey logos larger */
+  .company-logo-img[alt*="Walmart"] {
+    height: 40px;
+    max-width: 130px;
+  }
+  
+  .company-logo-img[alt*="McKinsey"] {
+    height: 40px;
+    max-width: 130px;
+  }
+  
   .team-scroll {
     gap: 5px;
     padding: 0 5px;
@@ -4241,6 +4265,17 @@ body.letter-open {
   .company-logos {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px 15px;
+  }
+  
+  /* Keep Walmart and McKinsey logos larger on small mobile */
+  .company-logo-img[alt*="Walmart"] {
+    height: 40px;
+    max-width: 130px;
+  }
+  
+  .company-logo-img[alt*="McKinsey"] {
+    height: 40px;
+    max-width: 130px;
   }
 }
 
@@ -5162,7 +5197,7 @@ body.letter-open {
   }
 
   .get-started-title {
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 40px;
   }
 
@@ -5172,15 +5207,19 @@ body.letter-open {
   }
   .step-icon-wrapper {
     margin-bottom: 0px;
+    flex-shrink: 0;
   }
   .step-icon {
     margin-bottom: 0px;
+    flex-shrink: 0;
   }
   .timeline-step {
     flex-direction: row;
-    gap: 10px;
+    gap: 20px;
     /* max-width: 400px; */
     align-items: center;
+    justify-content: flex-start;
+    padding-left: 40px;
   }
 
   .step-connector {
@@ -5188,7 +5227,10 @@ body.letter-open {
   }
 
   .step-title {
-    max-width: 100%;
+    text-align: left;
+    line-height: 1.5;
+    flex: 1;
+    padding-right: 20px;
   }
 }
 
@@ -5205,6 +5247,8 @@ body.letter-open {
 
   .step-title {
     font-size: 16px;
+    text-align: left;
+    line-height: 1.5;
   }
 
   .pricing-comparison {
