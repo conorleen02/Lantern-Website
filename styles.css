@@ -2581,17 +2581,21 @@ body {
   grid-column: 19 / span 6;
 }
 
-/* Desktop: Second row - 3 advisors centered to fill gaps */
+/* Desktop: Second row - 4 advisors evenly spaced */
 .advisors-grid .advisor-card:nth-child(5) {
-  grid-column: 4 / span 6;
+  grid-column: 1 / span 6;
 }
 
 .advisors-grid .advisor-card:nth-child(6) {
-  grid-column: 10 / span 6;
+  grid-column: 7 / span 6;
 }
 
 .advisors-grid .advisor-card:nth-child(7) {
-  grid-column: 16 / span 6;
+  grid-column: 13 / span 6;
+}
+
+.advisors-grid .advisor-card:nth-child(8) {
+  grid-column: 19 / span 6;
 }
 
 /* First row: 4 advisors, each spanning 2 columns (fills 8 columns) */
@@ -2728,15 +2732,10 @@ body {
   .advisors-grid .advisor-card:nth-child(3),
   .advisors-grid .advisor-card:nth-child(4),
   .advisors-grid .advisor-card:nth-child(5),
-  .advisors-grid .advisor-card:nth-child(6) {
+  .advisors-grid .advisor-card:nth-child(6),
+  .advisors-grid .advisor-card:nth-child(7),
+  .advisors-grid .advisor-card:nth-child(8) {
     grid-column: auto;
-  }
-
-  /* Mobile: Center the last advisor (7th one) */
-  .advisors-grid .advisor-card:nth-child(7) {
-    grid-column: 1 / span 2;
-    max-width: 50%;
-    margin: 0 auto;
   }
 
   .advisor-card {
